@@ -1,0 +1,20 @@
+
+    <div class="navbar">
+        <form class="search-form">
+            <div class="search-container">
+                <input type="text" #search class="search-field" name="search" placeholder="Search">
+
+                <!-- <button type="submit" class="search-button">Search
+                    <i class="fa fa-search"></i>
+                </button> -->
+                <ul class="suggested-search" *ngIf="isPresent">
+                    <li *ngFor="let item of suggests" class="suggest">
+                        <a href="" class="item-name">
+                            <p>{{item.Name}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </form>
+    </div>

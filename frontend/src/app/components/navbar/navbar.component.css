@@ -1,0 +1,29 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-field{
+    width: 500px;
+}
+.suggested-search{
+    list-style: none;
+    background-color: rgb(235, 237, 239);
+    width: 500px;
+    text-decoration:none;
+    padding-left: 0;
+}
+.item-name{
+    text-decoration:none;
+    color: black;
+    margin-left: 0;
+    /* max-height: 10px */
+
+}
+.suggest:hover{
+    background-color: aquamarine;
+}
+.suggest{
+    margin-left:0px;
+    padding:.1rem;
+}
