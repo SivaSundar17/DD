@@ -1,29 +1,20 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.search-field{
-    width: 500px;
-}
-.suggested-search{
-    list-style: none;
-    background-color: rgb(235, 237, 239);
-    width: 500px;
-    text-decoration:none;
-    padding-left: 0;
-}
-.item-name{
-    text-decoration:none;
-    color: black;
-    margin-left: 0;
-    /* max-height: 10px */
 
+.search-field {
+    width: 45rem;
 }
-.suggest:hover{
-    background-color: aquamarine;
+
+.bg_color {
+    background-color: #2d2d86;
 }
-.suggest{
-    margin-left:0px;
-    padding:.1rem;
+
+.dropdown_position {
+    position: absolute;
+    left: 23.5%;
+    top: 3.25rem;
+    width: 44rem;
 }

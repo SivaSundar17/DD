@@ -5,17 +5,22 @@ import { HttpClient } from '@angular/common/http';
 import baseURL from './helper';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // getSearch(search: String) {
   //   return this.http.post(baseURL + "/revenue/", revenue);
   // }
 
   getSearch(search: String): Observable<Product> {
-    return this.http.get<Product>(baseURL + '/walmart/search/' + search)
-}
+    return this.http.get<Product>(baseURL + '/walmart/search/' + search);
+  }
+
+  getProdByCatalogueId(): Observable<Product> {
+    return this.http.get<Product>(
+      baseURL + '/walmart/catalogItemId/' + localStorage.getItem('cId')
+    );
+  }
 }

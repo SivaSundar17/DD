@@ -1,0 +1,24 @@
+<div class="flex items-center max-w-6xl mx-auto space-x-3 mt-10">
+    <p class="text-xl font-bold">
+        {{ products.length }} Results for " {{ key }} "
+    </p>
+</div>
+
+<div class="flex max-w-6xl mx-auto flex-wrap">
+    <div *ngFor="let prod of products">
+        <div class="border-1 border-gray-300 p-2 max-w-sm w-72 m-2 shadow-md">
+            <div class="flex justify-center">
+                <img src="{{ prod.ImageUrl }}" alt="" class="w-50 h-50 p-1 m-4" />
+            </div>
+            <p class="truncate hover:text-clip h-10 mx-3">{{ prod.Name }}</p>
+            <div class="flex items-center justify-between mx-3">
+                <p class="text-blue-600 font-semibold">
+                    {{ prod.CurrentPrice }} {{ prod.Currency }}
+                </p>
+                <p (click)="addcId(prod.CatalogItemId)" class="text-white bg-blue-900 px-2 p-1 rounded-md hover:bg-blue-950 cursor-pointer">
+                    View Details
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

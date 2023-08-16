@@ -93,4 +93,9 @@ public class WalmartProductsServiceImpl implements WalmartProductsService {
 		
 	}
 
+	@Override
+	public WalmartProducts getByCatalogItemId(String cId) {
+		return walmartProductsRepo.getByCatalogItemId(cId);
+	}
+
 }
