@@ -15,5 +15,12 @@ public interface WalmartProductsService {
 	
 	public Integer createIndex();
 	
+	public String deleteProducts();
+	
+	public List<WalmartProducts> getDiscountProducts();
+	
+	public WalmartProducts getByCatalogItemId(String cId);
+
+	
 
 }

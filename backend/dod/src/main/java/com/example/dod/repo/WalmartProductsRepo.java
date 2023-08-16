@@ -27,4 +27,12 @@ public interface WalmartProductsRepo extends JpaRepository<WalmartProducts, Long
 	@Query(value="SELECT * FROM dddb.walmart_products\r\n"
 			+ "WHERE MATCH(name) AGAINST (:search) LIMIT 5;", nativeQuery = true)
 	List<WalmartProducts>indexSearch(@Param("search") String search);
+	
+	@Query(value="SELECT *\r\n"
+			+ "FROM dddb.walmart_products\r\n"
+			+ "ORDER BY discount_percentage desc\r\n"
+			+ "LIMIT 5;",nativeQuery=true)
+	List<WalmartProducts>finadDiscountProducts();
+	
+	public WalmartProducts getByCatalogItemId(String cId);
 }

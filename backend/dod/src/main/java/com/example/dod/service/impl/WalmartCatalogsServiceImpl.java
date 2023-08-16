@@ -82,6 +82,15 @@ public class WalmartCatalogsServiceImpl implements WalmartCatalogsService {
 	public int getTotalPages() {
 		return 0;
 	}
+
+	@Override
+	public void deleteCatalogs() {
+		this.walmartCatalogsRepo.deleteAll();
+	}
+	
+	
+	
+	
 	
 	
 

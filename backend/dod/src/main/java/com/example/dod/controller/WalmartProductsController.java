@@ -37,5 +37,15 @@ public class WalmartProductsController {
 	public ResponseEntity<Integer> search(){
 		return ResponseEntity.ok(this.walmartProductsService.createIndex());		
 	}
+	
+	@GetMapping("/catalogItemId/{cId}")
+	public ResponseEntity<WalmartProducts> getByCatalogItemId(@PathVariable String cId){
+		return ResponseEntity.ok(this.walmartProductsService.getByCatalogItemId(cId));		
+	}
+	
+	@GetMapping("/getDiscounts")
+	public ResponseEntity<List<WalmartProducts>> getDiscountProducts(){
+		return ResponseEntity.ok(this.walmartProductsService.getDiscountProducts());
+	}
 
 }

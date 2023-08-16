@@ -5,6 +5,7 @@ import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -92,5 +93,22 @@ public class WalmartProductsServiceImpl implements WalmartProductsService {
 		return list;
 		
 	}
+
+	@Override
+	public String deleteProducts() {
+		this.walmartProductsRepo.deleteAll();
+		return "Products deleted successfully";
+	}
+
+	@Override
+	public List<WalmartProducts> getDiscountProducts() {
+		return this.walmartProductsRepo.finadDiscountProducts();
+	}
+	
+	@Override
+	public WalmartProducts getByCatalogItemId(String cId) {
+		return walmartProductsRepo.getByCatalogItemId(cId);
+	}
+	
 
 }
