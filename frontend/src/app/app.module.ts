@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProdDetailsComponent } from './pages/prod-details/prod-details.component';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive'
 
 
 @NgModule({
@@ -17,13 +18,15 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
     NavbarComponent,
     HomeComponent,
     ProdDetailsComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

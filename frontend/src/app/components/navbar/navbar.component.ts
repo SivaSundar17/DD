@@ -20,9 +20,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       });
   }
 
-  constructor(private productservice: ProductService) {}
+  constructor(private productservice: ProductService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   isPresent: boolean = false;
   suggests!: Product[];
   input: string = '';
@@ -52,5 +52,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   addcId(cId: string) {
     localStorage.setItem('cId', cId);
     location.href = '/prodDetails';
+  }
+  clickedOut() {
+    this.isPresent = false;
+
   }
 }
