@@ -1,20 +1,19 @@
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
 
-.search-field {
-    width: 45rem;
+.navbar_search {
+    width: 40vw;
+}
+
+.navbar_search_dropdown {
+    width: 39.5vw;
+
 }
 
 .bg_color {
     background-color: #2d2d86;
-}
-
-.dropdown_position {
-    position: absolute;
-    left: 13.5%;
-    top: 3.25rem;
-    width: 44rem;
 }

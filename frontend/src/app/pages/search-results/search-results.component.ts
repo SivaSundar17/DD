@@ -18,6 +18,9 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
+  affiliateName(){
+    
+  }
   addcId(cId: string) {
     localStorage.setItem('cId', cId);
     location.href = '/prodDetails';

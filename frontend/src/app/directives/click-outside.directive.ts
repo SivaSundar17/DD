@@ -20,25 +20,7 @@ export class ClickOutsideDirective {
   constructor(private elementRef: ElementRef) {
   }
 
-  // @Output() ClickOutside = new EventEmitter<void>();
 
-  // @HostListener('document:click', ['$event.target'])
-  // onClick(target: any): void {
-  //   const clickedInside = this.elementRef.nativeElement.contains(target);
-  //   if (!clickedInside) {
-  //     this.ClickOutside.emit();
-  //   }
-  // }
-
-
-  // @HostListener('mouseenter') onMouseEnter() {
-  //   this.changeBackgroundColor('lightblue');
-  // }
-
-  // @HostListener('mouseleave') onMouseLeave() {
-  //   console.log("mouse left")
-  //   // this.changeBackgroundColor(null);
-  // }
 
   @Input() myValue: boolean | undefined;
   @Output() clickOutside = new EventEmitter<void>();
