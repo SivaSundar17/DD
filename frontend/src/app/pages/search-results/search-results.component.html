@@ -10,7 +10,7 @@
             <div class="flex justify-center">
                 <img src="{{ prod.ImageUrl }}" alt="" class="w-20 h-20 md:w-50 md:h-50 md:p-1 md:m-4" />
             </div>
-            <p class="text-xs text-gray-500 mx-1 md:mx-3">{{prod.CampaignName}}</p>
+            <p class="text-xs text-gray-500 mx-1 md:mx-3">{{prod.CampaignName.split(' ')[0]}}</p>
 
             <p class="truncate hover:text-clip h2 mx-1 md:h-10 md:mx-3">{{ prod.Name }}</p>
             <div class="flex items-center justify-between mx-1 md:mx-3">

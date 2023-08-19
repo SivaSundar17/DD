@@ -10,12 +10,15 @@
             <div class="flex justify-center">
                 <img src="{{ prod.ImageUrl }}" alt="" class="w-20 h-20 md:w-50 md:h-50 md:p-1 md:m-4" />
             </div>
-            <p class="text-xs text-gray-500 mx-1 md:mx-3">{{prod.CampaignName}}</p>
+            <p class="text-xs text-gray-500 mx-1 md:mx-3">{{prod.CampaignName.split(' ')[0]}}</p>
 
             <p class="truncate hover:text-clip h2 mx-1 md:h-10 md:mx-3">{{ prod.Name }}</p>
             <div class="flex items-center justify-between mx-1 md:mx-3">
                 <p class="text-green-500 text-sm md:text-2xl font-semibold">
                     ${{ prod.CurrentPrice }}
+                </p>
+                <p class="text-slate-400 line-through text-xs md:text-base ">
+                    ${{ prod.OriginalPrice}}
                 </p>
                 <p (click)="addcId(prod.CatalogItemId)"
                     class="text-white text-xs bg-blue-900 px-1 py-0.5 md:px-2 md:p-1 rounded-md hover:bg-blue-950 cursor-pointer">
