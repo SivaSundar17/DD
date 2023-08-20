@@ -1,33 +1,39 @@
-<div class="m-10 mx-auto max-w-6xl my-5 border-1 border-gray-300 shadow-sm p-5">
-    <div class="flex justify-evenly">
-        <div class="p-2">
-            <img src="{{ prod.ImageUrl }}" alt="" class="w-fit h-fit" />
-        </div>
-        <div class="mt-2 p-2 pl-5">
-            <p class="font-bold text-xl">
-                {{ prod.Name }}
-                <!-- Squeeze Me Pink Unicorn by Animolds | The Cutest Unicorn Noise Sound | Great for Boys Girl Kids Toddlers Decoration Parties & Gifts (Pink) -->
-            </p>
-            <p>{{ prod.Manufacturer }}</p>
-            <hr class="border-1 border-gray-500" />
-            <div class="flex space-x-2">
-                <span class="text-red-500">-{{ prod.DiscountPercentage }} %</span>
-                <p class="font-bold">{{ prod.CurrentPrice }} {{ prod.Currency }}</p>
-            </div>
-            <div class="flex space-x-1 text-gray-400 text-sm">
-                <p>
-                    MRP : <span class="line-through">{{ prod.OriginalPrice }} </span
+<div
+  class="m-10 mx-auto max-w-sm md:max-w-6xl my-5 border-1 border-gray-300 shadow-sm md:p-5"
+>
+  <div class="flex justify-evenly">
+    <div class="p-5">
+      <img src="{{ prod.ImageUrl }}" alt="" class="w-fit h-fit" />
+    </div>
+    <div class="mt-2 p-2 pl-5">
+      <p class="font-bold text-sm md:text-xl">
+        {{ prod.Name }}
+        <!-- Squeeze Me Pink Unicorn by Animolds | The Cutest Unicorn Noise Sound | Great for Boys Girl Kids Toddlers Decoration Parties & Gifts (Pink) -->
+      </p>
+      <p class="text-xs md:text-base">{{ prod.Manufacturer }}</p>
+      <hr class="border-1 border-gray-500" />
+      <div class="flex space-x-2">
+        <span class="text-red-500 text-xs md:text-base"
+          >-{{ prod.DiscountPercentage }} %</span
+        >
+        <p class="font-bold text-xs md:text-base">
+          {{ prod.CurrentPrice }} {{ prod.Currency }}
+        </p>
+      </div>
+      <div class="flex space-x-1 text-gray-400 text-xs md:text-sm">
+        <p>
+          MRP : <span class="line-through">{{ prod.OriginalPrice }} </span
           >{{ prod.Currency }}
         </p>
       </div>
       <hr class="border-1 border-gray-500" />
-      <p class="font-semibold">About this item</p>
-      <p class="max-w-3xl">
+      <p class="font-semibold text-xs md:text-base">About this item</p>
+      <p class="max-w-xs md:max-w-3xl text-xs md:text-base truncate">
         {{ prod.Description }}
       </p>
       <a href="{{ prod.Url }}"
         ><button
-          class="text-white bg-green-500 font-semibold px-3 py-1 mx-auto hover:bg-green-800"
+          class="text-white text-xs md:text-base bg-green-500 font-semibold px-3 py-1 mx-auto hover:bg-green-800"
         >
           Buy Now
         </button></a

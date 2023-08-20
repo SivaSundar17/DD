@@ -5,23 +5,114 @@
 </div> -->
 
 <div class="flex max-w-sm md:max-w-5xl mx-auto flex-wrap my-5">
-    <div *ngFor="let prod of products">
-        <div class="border-1 border-gray-300 p-2 card m-2 shadow-md">
-            <div class="flex justify-center">
-                <img src="{{ prod.ImageUrl }}" alt="" class="w-20 h-20 md:w-50 md:h-50 md:p-1 md:m-4" />
-            </div>
-            <p class="text-xs text-gray-500 mx-1 md:mx-3">{{prod.CampaignName.split(' ')[0]}}</p>
+  <div *ngFor="let prod of products">
+    <!-- large screen -->
+    <div class="hidden lg:inline-block">
+      <div class="border border-gray m-3 card shadow-md">
+        <div class="p-2 py-4">
+          <div class="flex justify-center">
+            <img src="{{ prod.ImageUrl }}" alt="" class="w-40 h-40" />
+          </div>
+          <div class="text-xs text-gray-500 mx-3">
+            {{ prod.CampaignName.split(" ")[0] }}
+          </div>
+          <div class="truncate hover:text-clip text-lg font-bold mx-3">
+            {{ prod.Name }}
+          </div>
 
-            <p class="truncate hover:text-clip h2 mx-1 md:h-10 md:mx-3">{{ prod.Name }}</p>
-            <div class="flex items-center justify-between mx-1 md:mx-3">
-                <p class="text-green-500 text-sm md:text-2xl font-semibold">
-                    ${{ prod.CurrentPrice }}
-                </p>
-                <p (click)="addcId(prod.CatalogItemId)"
-                    class="text-white text-xs bg-blue-900 px-1 py-0.5 md:px-2 md:p-1 rounded-md hover:bg-blue-950 cursor-pointer">
-                    View Details
-                </p>
+          <div class="flex items-center justify-between mx-3">
+            <div class="flex space-x-1 items-center">
+              <div class="text-green-500 text-2xl font-semibold">
+                ${{ prod.CurrentPrice }}
+              </div>
+              <div
+                *ngIf="prod.OriginalPrice != ''"
+                class="text-lg line-through text-gray-600"
+              >
+                ${{ prod.OriginalPrice }}
+              </div>
             </div>
+            <div
+              (click)="addcId(prod.CatalogItemId)"
+              class="text-white bg-blue-900 px-2 p-1 rounded-md hover:bg-blue-950 cursor-pointer"
+            >
+              View Details
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+    <!-- medium screen -->
+    <div class="hidden md:inline-flex lg:hidden">
+      <div class="border border-gray-100 m-1 mCard shadow-md">
+        <div class="p-2 space-y-1">
+          <div class="flex justify-center">
+            <img src="{{ prod.ImageUrl }}" alt="" class="w-14 h-14" />
+          </div>
+          <div class="mobileCard_text text-gray-500">
+            {{ prod.CampaignName.split(" ")[0] }}
+          </div>
+          <div class="truncate mobileCard_text font-bold">
+            {{ prod.Name }}
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex flex-wrap items-center">
+              <div class="text-green-500 mobileCard_text font-semibold">
+                ${{ prod.CurrentPrice }}
+              </div>
+              <div
+                *ngIf="prod.OriginalPrice != ''"
+                class="mobileCard_text line-through text-gray-600"
+              >
+                ${{ prod.OriginalPrice }}
+              </div>
+            </div>
+            <div
+              (click)="addcId(prod.CatalogItemId)"
+              class="text-white mobileCard_button bg-blue-900 hover:bg-blue-950 cursor-pointer px-1 py-0.5"
+            >
+              View
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- small screen -->
+    <div class="md:hidden">
+      <div class="border border-gray m-1 mobileCard md:tabletCard shadow-md">
+        <div class="p-2 pb-4 space-y-1">
+          <div class="flex justify-center">
+            <img src="{{ prod.ImageUrl }}" alt="" class="w-14 h-14" />
+          </div>
+          <div class="mobileCard_text text-gray-500">
+            {{ prod.CampaignName.split(" ")[0] }}
+          </div>
+          <div class="truncate mobileCard_text font-bold">
+            {{ prod.Name }}
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex flex-wrap items-center">
+              <div class="text-green-500 mobileCard_text font-semibold">
+                ${{ prod.CurrentPrice }}
+              </div>
+              <div
+                *ngIf="prod.OriginalPrice != ''"
+                class="mobileCard_text line-through text-gray-600"
+              >
+                ${{ prod.OriginalPrice }}
+              </div>
+            </div>
+            <div
+              (click)="addcId(prod.CatalogItemId)"
+              class="text-white mobileCard_button bg-blue-900 hover:bg-blue-950 cursor-pointer px-1 py-0.5"
+            >
+              View
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
