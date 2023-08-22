@@ -20,13 +20,16 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       });
   }
 
-  constructor(private productservice: ProductService) { }
+  optionsMenu: boolean = false;
 
-  ngOnInit(): void { }
+  constructor(private productservice: ProductService) {}
+
+  ngOnInit(): void {}
   isPresent: boolean = false;
   suggests!: Product[];
   input: string = '';
   searchKey: string = '';
+
   onSearch(search: string, key: string) {
     if (key === 'Enter' && search != '') {
       this.isPresent = true;
@@ -49,12 +52,20 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     localStorage.setItem('key', key + '');
     location.href = '/searchResults';
   }
+
   addcId(cId: string) {
     localStorage.setItem('cId', cId);
     location.href = '/prodDetails';
   }
+
   clickedOut() {
     this.isPresent = false;
+  }
 
+  dontShowOptions() {
+    this.optionsMenu = false;
+  }
+  showOptions() {
+    this.optionsMenu = !this.optionsMenu;
   }
 }

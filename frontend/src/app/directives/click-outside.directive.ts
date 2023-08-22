@@ -17,10 +17,7 @@ import { filter, fromEvent, Subscription } from 'rxjs';
   selector: '[clickOutside]',
 })
 export class ClickOutsideDirective {
-  constructor(private elementRef: ElementRef) {
-  }
-
-
+  constructor(private elementRef: ElementRef) {}
 
   @Input() myValue: boolean | undefined;
   @Output() clickOutside = new EventEmitter<void>();
@@ -29,7 +26,7 @@ export class ClickOutsideDirective {
   onClick(target: any): void {
     const clickedInside = this.elementRef.nativeElement.contains(target);
     if (!clickedInside && this.myValue) {
-      console.log(this.myValue)
+      console.log(this.myValue);
       this.clickOutside.emit();
     }
   }

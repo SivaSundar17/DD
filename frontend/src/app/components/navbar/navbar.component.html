@@ -12,7 +12,7 @@
   <div>
     <form onsubmit="" class="flex items-center">
       <div class="bg-white navbar_search px-1 py-0.5 md:px-2 md:py-1">
-        <div class="flex">
+        <div class="flex justify-between items-center">
           <input
             type="text"
             [(ngModel)]="searchKey"
@@ -20,8 +20,9 @@
             id="search"
             name="search"
             placeholder="What can we help you buy today"
-            class="navbar_search px-1 md:px-5 placeholder:font-semibold placeholder:w-auto placeholder:justify-start outline-none placeholder:text-gray-600 navbar_search"
-          /><svg
+            class="navbar_search_input px-1 placeholder:font-semibold outline-none placeholder:text-gray-600"
+          />
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -34,6 +35,7 @@
             />
           </svg>
         </div>
+
         <div clickOutside [myValue]="isPresent" (clickOutside)="clickedOut()">
           <div
             class="navbar_search_dropdown z-1 absolute border border-gray-100 bg-white mt-1"
@@ -132,8 +134,12 @@
       </div>
     </div>
   </div>
-  <div class="md:hidden">
-    <div></div>
+  <div
+    class="md:hidden"
+    clickOutside
+    [myValue]="optionsMenu"
+    (clickOutside)="dontShowOptions()"
+  >
     <div
       class="flex font-semibold text-sm text-white items-center space-x-2 hover:text-gray-300 cursor-pointer"
     >
@@ -151,8 +157,27 @@
           d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
         />
       </svg>
-
-      <div>OPTIONS</div>
+      <div (click)="showOptions()">OPTIONS</div>
+    </div>
+    <div
+      *ngIf="optionsMenu == true"
+      class="mx-2 border bg-white border-gray-500 absolute z-1 mt-2 text-sm"
+    >
+      <div
+        class="border-b border-gray-300 px-2 py-1 hover:bg-gray-300 hover:font-semibold"
+      >
+        Account
+      </div>
+      <div
+        class="border-b border-gray-300 px-2 py-1 hover:bg-gray-300 hover:font-semibold"
+      >
+        Deals
+      </div>
+      <div
+        class="border-b border-gray-300 px-2 py-1 hover:bg-gray-300 hover:font-semibold"
+      >
+        Menu
+      </div>
     </div>
   </div>
 </div>
