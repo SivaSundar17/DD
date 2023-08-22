@@ -4,7 +4,7 @@
 
 .mobileCard {
   width: 23vw;
-  height: 18.5vh;
+  /* height: 18.5vh; */
 }
 
 .mobileCard_text {
@@ -17,5 +17,9 @@
 
 .mCard {
   width: 23vw;
-  height: 15vh;
+  /* height: 15vh; */
+}
+
+.viewMaxWidth {
+  width: 1200px;
 }
