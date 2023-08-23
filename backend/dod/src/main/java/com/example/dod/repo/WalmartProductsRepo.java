@@ -12,7 +12,7 @@ import com.example.dod.model.WalmartProducts;
 @Repository
 public interface WalmartProductsRepo extends JpaRepository<WalmartProducts, Long> {
 
-	@Query(value = "SELECT * FROM dddb.walmart_products where name LIKE %:search% LIMIT 5 ", nativeQuery = true)
+	@Query(value = "SELECT * FROM dddb.walmart_products where name LIKE %:search% LIMIT 25 ", nativeQuery = true)
 	List<WalmartProducts> searchByName(@Param("search") String search);
 
 //	@Query(value="ALTER TABLE  dddb.walmart_products\r\n"
@@ -25,7 +25,7 @@ public interface WalmartProductsRepo extends JpaRepository<WalmartProducts, Long
 	public Integer showFullTextindex();
 	
 	@Query(value="SELECT * FROM dddb.walmart_products\r\n"
-			+ "WHERE MATCH(name) AGAINST (:search) LIMIT 5;", nativeQuery = true)
+			+ "WHERE MATCH(name) AGAINST (:search) LIMIT 25;", nativeQuery = true)
 	List<WalmartProducts>indexSearch(@Param("search") String search);
 	
 	@Query(value="SELECT *\r\n"
