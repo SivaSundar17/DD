@@ -38,7 +38,7 @@
 
         <div clickOutside [myValue]="isPresent" (clickOutside)="clickedOut()">
           <div
-            class="navbar_search_dropdown z-1 absolute border border-gray-100 bg-white mt-1"
+            class="navbar_search_dropdown z-1 scroll overflow-auto h-52 absolute border border-gray-100 bg-white mt-1"
             *ngIf="isPresent"
           >
             <div
