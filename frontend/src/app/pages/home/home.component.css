@@ -23,11 +23,3 @@
 .viewMaxWidth {
   width: 1200px;
 }
-
-.totalDivWidth {
-  @media (min-width: 1024px) {
-    .lg\:max-w-screen-2xl {
-      max-width: 1536px;
-    }
-  }
-}

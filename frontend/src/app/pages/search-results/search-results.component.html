@@ -5,7 +5,7 @@
 </div> -->
 <div class="flex">
   <div
-    class="flex max-w-sm md:max-w-5xl lg:max-w-[1370px] m-1 flex-wrap md:my-5"
+    class="flex max-w-sm md:max-w-5xl lg:max-w-[60%] xl:max-w-[74%] m-1 flex-wrap md:my-5"
   >
     <div *ngFor="let prod of products">
       <!-- large screen -->
@@ -22,8 +22,8 @@
               {{ prod.Name }}
             </div>
 
-            <div class="flex items-center justify-between mx-3">
-              <div class="flex space-x-1 items-center">
+            <div class="flex flex-wrap items-center justify-between mx-3">
+              <div class="flex flex-wrap space-x-1 items-center">
                 <div class="text-green-500 text-2xl font-semibold">
                   ${{ prod.CurrentPrice }}
                 </div>
@@ -120,7 +120,7 @@
       </div>
     </div>
   </div>
-  <div class="hidden lg:inline-block bg-gray-200 w-[500px] mt-3">
+  <div class="hidden lg:inline-block bg-gray-200 mt-3 w-[400px] h-[800px]">
     <div class="flex md:my-5 justify-center">
       <div class="font-bold">Advertisement</div>
     </div>

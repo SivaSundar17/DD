@@ -8,7 +8,7 @@
 }
 
 .mobileCard_text {
-  font-size: 5px;
+  font-size: 8px;
 }
 
 .mobileCard_button {
@@ -18,4 +18,8 @@
 .mCard {
   width: 23vw;
   /* height: 15vh; */
+}
+
+.viewMaxWidth {
+  width: 1200px;
 }
