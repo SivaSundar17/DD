@@ -1,0 +1,25 @@
+.card {
+  width: 16vw;
+}
+
+.mobileCard {
+  width: 23vw;
+  /* height: 18.5vh; */
+}
+
+.mobileCard_text {
+  font-size: 8px;
+}
+
+.mobileCard_button {
+  font-size: 2px;
+}
+
+.mCard {
+  width: 23vw;
+  /* height: 15vh; */
+}
+
+.viewMaxWidth {
+  width: 1200px;
+}
