@@ -9,13 +9,20 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class HomeComponent implements OnInit {
   products!: Product[];
+  furnitureProducts!: Product[];
+
   constructor(productService: ProductService) {
     localStorage.removeItem('cId');
     localStorage.removeItem('key');
-    productService.getDiscountProducts().subscribe((data: any) => {
+
+    productService.getDiscountProductsBycatalog("9767").subscribe((data: any) => {
       console.log(data);
+      this.furnitureProducts = data;
+    });
+    productService.getDiscountProducts().subscribe((data: any) => {
       this.products = data;
     });
+
   }
 
   ngOnInit(): void { }

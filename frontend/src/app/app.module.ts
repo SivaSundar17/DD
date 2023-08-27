@@ -9,7 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProdDetailsComponent } from './pages/prod-details/prod-details.component';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
-import { ClickOutsideDirective } from './directives/click-outside.directive'
+import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { CategoryDiscountsComponent } from './components/category-discounts/category-discounts.component'
+
 
 
 @NgModule({
@@ -19,14 +21,15 @@ import { ClickOutsideDirective } from './directives/click-outside.directive'
     HomeComponent,
     ProdDetailsComponent,
     SearchResultsComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    CategoryDiscountsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

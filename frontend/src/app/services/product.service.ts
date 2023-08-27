@@ -29,4 +29,10 @@ export class ProductService {
       baseURL + "/walmart/getDiscounts"
     );
   }
+
+  getDiscountProductsBycatalog(cIId: String): Observable<Product> {
+    return this.http.get<Product>(
+      baseURL + "/walmart/getDiscountsByCatalog/" + cIId
+    );
+  }
 }

@@ -1,0 +1,118 @@
+<!-- <div class="carousel-container overflow-hidden  md:max-w-[70%] lg:max-w-[70%] flex-wrap md:min-w-[70%] lg:min-w-[70%]">
+    <div class="carousel-track" [style.transform]="'translateX(' + -currentIndex * 300 + 'px)'">
+        <div class="border border-gray md:mx-3 md:my-1 lg:mx-5 lg:my-2 mCard lg:card shadow-md rounded-md"
+            *ngFor="let prod of furnitureProducts">
+            <div class="m-3 space-y-2">
+                <div class="flex items-center justify-center">
+                    <img src="{{ prod.ImageUrl }}" alt="" class="rounded-lg w-35 h-40 " />
+                </div>
+                <div class="text-xs text-gray-500 mt-0 ">
+                    {{ prod.CampaignName.split(" ")[0] }}
+                </div>
+                <div class="line-clamp-2 text-sm font-semibold ">
+                    {{ prod.Name }}
+                </div>
+                <div class="flex flex-wrap justify-between items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="text-green-500 text-xs lg:text-sm font-semibold">
+                            ${{ prod.CurrentPrice }}
+                        </div>
+
+                        <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
+                            ${{ prod.OriginalPrice }}
+                        </div>
+                    </div>
+                    <div (click)="addcId(prod.CatalogItemId)"
+                        class="text-white text-xs w-fit bg-blue-900 w-fit px-1 py-0.5 rounded-md hover:bg-blue-950 cursor-pointer">
+                        View Details
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+ <div class="md:flex md:max-w-[70%] lg:max-w-[64%] flex-wrap md:min-w-[70%] lg:min-w-[64%] overflow-hidden">
+    <div class="transition delay-150 duration-300 ease-in-out flex">
+        <div class="carousel-card" *ngFor="let prod of furnitureProducts"
+            [style.transform]="'translateX(' + -currentIndex * 41+ 'vw)'">
+            <!--medium and large screen -->
+            <div class="hidden md:inline-block">
+                <div class="border border-gray md:mx-3 md:my-1 lg:mx-5 lg:my-2 mCard lg:card shadow-md rounded-md">
+                    <div class="m-3 space-y-2">
+                        <div class="flex items-center justify-center">
+                            <img src="{{ prod.ImageUrl }}" alt="" class="rounded-lg w-35 h-40 " />
+                        </div>
+                        <div class="text-xs text-gray-500 mt-0 ">
+                            {{ prod.CampaignName.split(" ")[0] }}
+                        </div>
+                        <div class="line-clamp-2 text-sm font-semibold ">
+                            {{ prod.Name }}
+                        </div>
+                        <div class="flex flex-wrap justify-between items-center">
+                            <div class="flex items-center space-x-2">
+                                <div class="text-green-500 text-xs lg:text-sm font-semibold">
+                                    ${{ prod.CurrentPrice }}
+                                </div>
+
+                                <div *ngIf="prod.OriginalPrice != ''"
+                                    class="text-xs lg:text-sm line-through text-gray-600">
+                                    ${{ prod.OriginalPrice }}
+                                </div>
+                            </div>
+                            <div (click)="addcId(prod.CatalogItemId)"
+                                class="text-white text-xs w-fit bg-blue-900 w-fit px-1 py-0.5 rounded-md hover:bg-blue-950 cursor-pointer">
+                                View Details
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- small screen -->
+            <div class="md:hidden">
+                <div class="border border-gray my-1 mx-1 mobileCard shadow-sm rounded-md">
+                    <div class="flex items-center">
+                        <div class="p-0.5">
+                            <img src="{{ prod.ImageUrl }}" alt="" class="w-14 h-14 rounded-md" />
+                        </div>
+
+                        <div class="p-0.5 flex-1">
+                            <div class="mobileCard_text text-gray-500">
+                                {{ prod.CampaignName.split(" ")[0] }}
+                            </div>
+                            <div class="line-clamp-2 mobileCard_text font-semibold">
+                                {{ prod.Name }}
+                            </div>
+                            <div class="flex space-x-3 items-center">
+                                <div class="text-green-500 mobileCard_text font-semibold">
+                                    ${{ prod.CurrentPrice }}
+                                </div>
+                                <div *ngIf="prod.OriginalPrice != ''"
+                                    class="mobileCard_text line-through text-gray-600">
+                                    {{ prod.OriginalPrice }}
+                                </div>
+                                <div (click)="addcId(prod.CatalogItemId)"
+                                    class="text-white mobileCard_button bg-blue-900 w-fit px-1 py-0.5 rounded-md hover:bg-blue-950 cursor-pointer">
+                                    View
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+     </div>
+</div> 
+
+
+
+<button  *ngIf="currentIndex!=0"  (click)="slideCarousel(-1)" class="bg-gray-300 p-2 rounded-full">
+    <
+  </button>
+  <button (click)="slideCarousel(1)" class="bg-gray-300 p-2 rounded-full">
+    >
+  </button>
+ 
