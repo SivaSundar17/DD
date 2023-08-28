@@ -3,7 +3,9 @@ package com.example.dod.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,5 +28,10 @@ public class WalmartCatalogsController {
 	public String saveAllCatalogs() throws JsonMappingException, JsonProcessingException {
 		this.walmartCatalogsService.fetchDataAndSave();
 		return "saved";
+	}
+	
+	@DeleteMapping("/deleteAllCatalogs")
+	public ResponseEntity<String> deleteAllCatalogs(){
+		return ResponseEntity.ok(this.walmartCatalogsService.deleteCatalogs());
 	}
 }

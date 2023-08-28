@@ -11,6 +11,6 @@ public interface WalmartCatalogsService {
 	
 	public List<WalmartCatalogs> fetchAll();
 	public int getTotalPages();
-	public void deleteCatalogs();
+	public String deleteCatalogs();
 	
 }

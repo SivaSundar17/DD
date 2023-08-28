@@ -1,6 +1,6 @@
-.card {
+/* .card {
   width: 20vw;
-}
+} */
 
 .mobileCard {
   width: 62vw;
@@ -14,8 +14,6 @@
   font-size: 5px;
 }
 
-.mCard {
-  width: 18vw;
-
-  /* height: 15vh; */
+.card {
+  width: 16vw;
 }

@@ -20,6 +20,9 @@ public interface WalmartProductsService {
 	public List<WalmartProducts> getDiscountProducts();
 	
 	public WalmartProducts getByCatalogItemId(String cId);
+	
+	public List<WalmartProducts> getDiscountProductsByCatalog(String cIId);
+	
 
 	
 

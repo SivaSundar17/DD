@@ -1,5 +1,7 @@
 package com.example.dod.scheduler;
 
+import javax.mail.MessagingException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +48,10 @@ public class DodScheduler {
 	        logger.info("updation complete");
 	    }
 	    
-	    @Scheduled(cron = "0 27 20 * * ?") // Executes daily at 1:00 AM
-	    public void taskEmail() {
+	    @Scheduled(cron = "0 40 17 * * ?") // Executes daily at 1:00 AM
+	    public void taskEmail() throws MessagingException {
 	    	logger.info("Task Email executing ");
-	    	logger.info(emailService.sendEmail("shivalalitha17@gmail.com", "Just a trail", "Hey this is just a trail mail to check how its working :) !"));
+	    	logger.info(emailService.sendEmail("shivalalitha17@gmail.com", "Just a trail", "<p>yoo</p>"));
 	        logger.info("Task Email executed  ");
 
 	    }

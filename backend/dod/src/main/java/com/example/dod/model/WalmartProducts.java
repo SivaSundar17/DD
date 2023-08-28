@@ -21,6 +21,8 @@ public class WalmartProducts {
 	
 	@JsonProperty("Id")
     String id;
+	@JsonProperty("CatalogId")
+	String catalogId;
 	@JsonProperty("CampaignId")
     String campaignId;
 	@JsonProperty("CampaignName")
