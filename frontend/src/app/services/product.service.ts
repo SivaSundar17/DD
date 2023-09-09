@@ -35,4 +35,7 @@ export class ProductService {
       baseURL + "/walmart/getDiscountsByCatalog/" + cIId
     );
   }
+
+
+  
 }

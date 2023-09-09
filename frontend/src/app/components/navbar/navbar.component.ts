@@ -1,8 +1,10 @@
 import { compileDeclareInjectorFromMetadata } from '@angular/compiler';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, fromEvent } from 'rxjs';
+import { Wayfair } from 'src/app/model/Wayfair';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
+import { WayfairService } from 'src/app/services/wayfair.service';
 
 @Component({
   selector: 'app-navbar',
@@ -22,11 +24,12 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   optionsMenu: boolean = false;
 
-  constructor(private productservice: ProductService) {}
+  constructor(private productservice: ProductService, private wayfairService: WayfairService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   isPresent: boolean = false;
   suggests!: Product[];
+  wayfairSuggests!: Wayfair[];
   input: string = '';
   searchKey: string = '';
 
@@ -39,11 +42,17 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       });
     } else if (search != '') {
       this.isPresent = true;
-      console.log('suggest for ' + search);
+      // console.log('suggest for ' + search);
       this.productservice.getSearch(search).subscribe((data: any) => {
         this.suggests = data;
         // console.log('suggestss:' + data);
       });
+
+      this.wayfairService.getSearch(search).subscribe((data: any) => {
+        this.wayfairSuggests = data;
+      })
+      
+
       //console.log(this.suggests)
     }
   }
