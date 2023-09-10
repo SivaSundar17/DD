@@ -20,6 +20,7 @@ public class WalmartProductsCustomImpl implements WalmartProductCustom{
 //	        entityManager.createNativeQuery(sql).executeUpdate();
 //		
 //	}
+	
     @Transactional
 	@Override
 	public void createIFullTextndex() {
