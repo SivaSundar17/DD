@@ -10,7 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProdDetailsComponent } from './pages/prod-details/prod-details.component';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
-import { CategoryDiscountsComponent } from './components/category-discounts/category-discounts.component'
+import { CategoryDiscountsComponent } from './components/category-discounts/category-discounts.component';
+import { BestProductsComponent } from './components/best-products/best-products.component';
+import { BestProductDetailsComponent } from './pages/best-product-details/best-product-details.component'
 
 
 
@@ -22,7 +24,9 @@ import { CategoryDiscountsComponent } from './components/category-discounts/cate
     ProdDetailsComponent,
     SearchResultsComponent,
     ClickOutsideDirective,
-    CategoryDiscountsComponent
+    CategoryDiscountsComponent,
+    BestProductsComponent,
+    BestProductDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,28 +1,26 @@
+
 <div class="lg:max-w-screen-2xl lg:mx-auto lg:my-3">
   <div class="flex justify-evenly">
-    <div
-      class="max-w-[60%] md:max-w-[62%] lg:max-w-[68%] md:min-w-[62%] lg:min-w-[68%]"
-    >
-      <p class="text-xs md:text-lg lg:text-xl m-[1.25vw] font-semibold">
-        Exclusive Deals On Furnitures
-      </p>
+    <div class="max-w-[60%] md:max-w-[62%] lg:max-w-[68%] md:min-w-[62%] lg:min-w-[68%]">
 
+      <div
+      class="md:hidden hidden lg:inline-block md:max-w-[70%] lg:max-w-[100%] flex-wrap md:min-w-[70%] lg:min-w-[100%] overflow-hidden">
+      <app-best-products></app-best-products>
+    </div>
+
+    <p class="text-xs md:text-lg lg:text-xl m-[1.25vw] font-semibold">
+      Exclusive Deals On Furnitures
+    </p>
       <!--small and medium screen scroll -->
       <div class="lg:hidden">
         <div class="flex overflow-auto">
           <div *ngFor="let prod of furnitureProducts" class="">
             <!--medium and large screen -->
             <div class="hidden md:inline-block">
-              <div
-                class="border border-gray md:mx-3 md:my-1 lg:mx-5 lg:my-2 card shadow-md rounded-md"
-              >
+              <div class="border border-gray md:mx-3 md:my-1 lg:mx-5 lg:my-2 card shadow-md rounded-md">
                 <div class="m-3 space-y-2">
                   <div class="flex items-center justify-center">
-                    <img
-                      src="{{ prod.ImageUrl }}"
-                      alt=""
-                      class="rounded-lg w-35 h-40"
-                    />
+                    <img src="{{ prod.ImageUrl }}" alt="" class="rounded-lg w-35 h-40" />
                   </div>
                   <div class="text-xs text-gray-500 mt-0">
                     {{ prod.CampaignName.split(" ")[0] }}
@@ -32,23 +30,16 @@
                   </div>
                   <div class="flex flex-wrap justify-between items-center">
                     <div class="flex items-center space-x-2">
-                      <div
-                        class="text-green-500 text-xs lg:text-sm font-semibold"
-                      >
+                      <div class="text-green-500 text-xs lg:text-sm font-semibold">
                         ${{ prod.CurrentPrice }}
                       </div>
 
-                      <div
-                        *ngIf="prod.OriginalPrice != ''"
-                        class="text-xs lg:text-sm line-through text-gray-600"
-                      >
+                      <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
                         ${{ prod.OriginalPrice }}
                       </div>
                     </div>
-                    <div
-                      (click)="addcId(prod.CatalogItemId)"
-                      class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer"
-                    >
+                    <div (click)="addcId(prod.CatalogItemId)"
+                      class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
                       View deals
                     </div>
                   </div>
@@ -58,16 +49,10 @@
 
             <!-- small screen -->
             <div class="md:hidden">
-              <div
-                class="border border-gray my-1 mx-1 mobileCard shadow-sm rounded-md"
-              >
+              <div class="border border-gray my-1 mx-1 mobileCard shadow-sm rounded-md">
                 <div class="flex items-center">
                   <div class="p-0.5">
-                    <img
-                      src="{{ prod.ImageUrl }}"
-                      alt=""
-                      class="w-14 h-14 rounded-md"
-                    />
+                    <img src="{{ prod.ImageUrl }}" alt="" class="w-14 h-14 rounded-md" />
                   </div>
 
                   <div class="p-0.5 flex-1">
@@ -81,16 +66,11 @@
                       <div class="text-green-500 mobileCard_text font-semibold">
                         ${{ prod.CurrentPrice }}
                       </div>
-                      <div
-                        *ngIf="prod.OriginalPrice != ''"
-                        class="mobileCard_text line-through text-gray-600"
-                      >
+                      <div *ngIf="prod.OriginalPrice != ''" class="mobileCard_text line-through text-gray-600">
                         {{ prod.OriginalPrice }}
                       </div>
-                      <div
-                        (click)="addcId(prod.CatalogItemId)"
-                        class="text-white mobileCard_button bg-blue-900 rounded-sm w-fit px-1 py-0.5 hover:bg-blue-950 cursor-pointer"
-                      >
+                      <div (click)="addcId(prod.CatalogItemId)"
+                        class="text-white mobileCard_button bg-blue-900 rounded-sm w-fit px-1 py-0.5 hover:bg-blue-950 cursor-pointer">
                         View
                       </div>
                     </div>
@@ -104,8 +84,7 @@
 
       <!--large screen carousel -->
       <div
-        class="md:hidden hidden lg:inline-block md:max-w-[70%] lg:max-w-[100%] flex-wrap md:min-w-[70%] lg:min-w-[100%] overflow-hidden"
-      >
+        class="md:hidden hidden lg:inline-block md:max-w-[70%] lg:max-w-[100%] flex-wrap md:min-w-[70%] lg:min-w-[100%] overflow-hidden">
         <app-category-discounts></app-category-discounts>
       </div>
 
@@ -117,16 +96,10 @@
         <div *ngFor="let prod of products">
           <!--medium and large screen Cards-->
           <div class="hidden md:inline-block flex">
-            <div
-              class="border border-gray md:mx-3 md:my-1 lg:mx-4 lg:my-2 card shadow-md rounded-md"
-            >
+            <div class="border border-gray md:mx-3 md:my-1 lg:mx-4 lg:my-2 card shadow-md rounded-md">
               <div class="m-3 space-y-2">
                 <div class="flex items-center justify-center">
-                  <img
-                    src="{{ prod.ImageUrl }}"
-                    alt=""
-                    class="rounded-lg w-35 h-40"
-                  />
+                  <img src="{{ prod.ImageUrl }}" alt="" class="rounded-lg w-35 h-40" />
                 </div>
                 <div class="text-xs text-gray-500 mt-0">
                   {{ prod.CampaignName.split(" ")[0] }}
@@ -136,23 +109,16 @@
                 </div>
                 <div class="flex flex-wrap justify-between items-center">
                   <div class="flex items-center space-x-2">
-                    <div
-                      class="text-green-500 text-xs lg:text-sm font-semibold"
-                    >
+                    <div class="text-green-500 text-xs lg:text-sm font-semibold">
                       ${{ prod.CurrentPrice }}
                     </div>
 
-                    <div
-                      *ngIf="prod.OriginalPrice != ''"
-                      class="text-xs lg:text-sm line-through text-gray-600"
-                    >
+                    <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
                       ${{ prod.OriginalPrice }}
                     </div>
                   </div>
-                  <div
-                    (click)="addcId(prod.CatalogItemId)"
-                    class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer"
-                  >
+                  <div (click)="addcId(prod.CatalogItemId)"
+                    class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
                     View deals
                   </div>
                 </div>
@@ -162,16 +128,10 @@
 
           <!-- small screen Cards-->
           <div class="md:hidden">
-            <div
-              class="border border-gray my-1 mx-1 mobileCard shadow-sm rounded-md"
-            >
+            <div class="border border-gray my-1 mx-1 mobileCard shadow-sm rounded-md">
               <div class="flex items-center">
                 <div class="p-0.5">
-                  <img
-                    src="{{ prod.ImageUrl }}"
-                    alt=""
-                    class="w-14 h-14 rounded-md"
-                  />
+                  <img src="{{ prod.ImageUrl }}" alt="" class="w-14 h-14 rounded-md" />
                 </div>
 
                 <div class="p-0.5 flex-1">
@@ -185,16 +145,11 @@
                     <div class="text-green-500 mobileCard_text font-semibold">
                       ${{ prod.CurrentPrice }}
                     </div>
-                    <div
-                      *ngIf="prod.OriginalPrice != ''"
-                      class="mobileCard_text line-through text-gray-600"
-                    >
+                    <div *ngIf="prod.OriginalPrice != ''" class="mobileCard_text line-through text-gray-600">
                       {{ prod.OriginalPrice }}
                     </div>
-                    <div
-                      (click)="addcId(prod.CatalogItemId)"
-                      class="text-white mobileCard_button bg-blue-900 w-fit rounded-sm px-1 py-0.5 hover:bg-blue-950 cursor-pointer"
-                    >
+                    <div (click)="addcId(prod.CatalogItemId)"
+                      class="text-white mobileCard_button bg-blue-900 w-fit rounded-sm px-1 py-0.5 hover:bg-blue-950 cursor-pointer">
                       View
                     </div>
                   </div>

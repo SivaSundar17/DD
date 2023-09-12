@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('key');
 
     productService.getDiscountProductsBycatalog("9767").subscribe((data: any) => {
-      console.log(data);
       this.furnitureProducts = data;
     });
     productService.getDiscountProducts().subscribe((data: any) => {
