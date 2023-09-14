@@ -1,0 +1,66 @@
+<!-- <div class="flex-col justify-center"> -->
+    <!-- <div class="flex-col space-y-2 justify-center"> -->
+        <!-- <div class="flex justify-end" (click)="modal.closeModal()"> 
+            <button class="text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div> -->
+        <!-- <div class="flex justify-center items-center place-content-center">
+            <div>
+                <div class="text-2xl flex justify-center">Join Deals of the Day</div>
+                <div class="text-lg text-gray-700 font-light flex justify-center">
+                    Find and share great deals
+                </div>
+
+                <div class="md:hidden my-2 justify-center"> <asl-google-signin-button  *ngIf="!user" size="large"
+                        width="300" height="200" type="standard">
+                    </asl-google-signin-button>
+                </div>
+
+                <div class="hidden md:inline-block lg:hidden my-4 justify-center"> <asl-google-signin-button
+                        *ngIf="!user" size="large" width="300" height="200" type="standard">
+                    </asl-google-signin-button>
+                </div>
+                <div class="hidden lg:inline-block mt-5 mb-2 justify-center"> <asl-google-signin-button *ngIf="!user"
+                        size="large" width="300" height="200" type="standard">
+                    </asl-google-signin-button>
+                </div>
+            </div>
+        </div> -->
+    <!-- </div> -->
+    <!-- <hr class="border-2 border-gray-500" /> -->
+    <!-- <div class="flex justify-center">
+        <button class="border border-gray-300 rounded-full px-3 py-2 text-sm">Sign Up with Email</button>
+    </div> -->
+<!-- </div>  -->
+<!-- 
+
+<div *ngIf="user">
+    <img src="{{ user.photoUrl }}">
+    <div>
+        <h4>{{ user.name }}</h4>
+        <p>{{ user.email }}</p>
+        <button (click)="signOut()">logout</button>
+    </div>
+</div> -->
+<html>
+  <body>
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
+      <div id="g_id_onload"
+         data-client_id="535029787150-89e6st1bajh7sudpssdlaoomrqr8feol.apps.googleusercontent.com"
+         data-callback="handleCallBack"
+         data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="rectangular"
+         data-logo_alignment="left">
+      </div>
+  </body>
+</html>

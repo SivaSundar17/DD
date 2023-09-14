@@ -1,19 +1,27 @@
-/* .card {
-  width: 20vw;
-} */
-
 .mobileCard {
-  width: 62vw;
+  width: full;
+  height: 15vh;
+}
+
+.mobileCardScroll {
+  width: 36vw;
+  height: fit-content;
 }
 
 .mobileCard_text {
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .mobileCard_button {
-  font-size: 5px;
+  font-size: 9px;
 }
 
-.card {
+.largeCard {
   width: 16vw;
+  height: fit-content;
+}
+
+.mediumCard {
+  width: 22vw;
+  height: fit-content
 }

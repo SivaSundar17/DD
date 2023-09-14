@@ -12,7 +12,14 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { CategoryDiscountsComponent } from './components/category-discounts/category-discounts.component';
 import { BestProductsComponent } from './components/best-products/best-products.component';
-import { BestProductDetailsComponent } from './pages/best-product-details/best-product-details.component'
+import { BestProductDetailsComponent } from './pages/best-product-details/best-product-details.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleAuthComponent } from './components/google-auth/google-auth.component';
+import {
+  GoogleLoginProvider,
+} from '@abacritt/angularx-social-login';
+import { ModalComponent } from './components/modal/modal.component';
+
 
 
 
@@ -26,7 +33,9 @@ import { BestProductDetailsComponent } from './pages/best-product-details/best-p
     ClickOutsideDirective,
     CategoryDiscountsComponent,
     BestProductsComponent,
-    BestProductDetailsComponent
+    BestProductDetailsComponent,
+    GoogleAuthComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +43,27 @@ import { BestProductDetailsComponent } from './pages/best-product-details/best-p
     FormsModule,
     HttpClientModule,
     FormsModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '535029787150-5j1gkkbe5q1t4qjkrpshi3mfh3j5ah7l.apps.googleusercontent.com'
+            )
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

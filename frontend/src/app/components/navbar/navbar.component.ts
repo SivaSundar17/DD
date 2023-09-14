@@ -5,6 +5,12 @@ import { Wayfair } from 'src/app/model/Wayfair';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
 import { WayfairService } from 'src/app/services/wayfair.service';
+import { ModalComponent } from '../modal/modal.component';
+import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { GoogleAuthService } from 'src/app/services/google-auth.service';
+import { GoogleUser } from 'src/app/model/GoogleUser';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +19,8 @@ import { WayfairService } from 'src/app/services/wayfair.service';
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
   @ViewChild('search') search: any;
-
+  loggedIn!: boolean;
+  user!: SocialUser;
   ngAfterViewInit(): void {
     fromEvent(this.search.nativeElement, 'keyup')
       .pipe(debounceTime(500))
@@ -23,13 +30,32 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   }
 
   optionsMenu: boolean = false;
-
-  constructor(private productservice: ProductService, private wayfairService: WayfairService) { }
+  modal: ModalComponent = new ModalComponent();
+  constructor(private productservice: ProductService, private wayfairService: WayfairService, private authService: SocialAuthService,private gooleAuthService:GoogleAuthService,private router: Router) {
+    console.log(this.user);
+    const storedItem=localStorage.getItem('socialUser')
+    if(storedItem!==null){
+    // this.user=JSON.parse(storedItem);
+    // console.log("here"+this.user);
+    }
+    //     this.authService.authState.subscribe((user) => {
+    //   this.user = user;
+    //    this.loggedIn = (user != null);
+    //    console.log(user);
+    // });
+    // else{
+    //   this.authService.authState.subscribe((user) => {
+    //   this.user = user;
+    //    this.loggedIn = (user != null);
+    //    console.log(user);
+    // });
+    // }
+  }
 
   ngOnInit(): void { }
   isPresent: boolean = false;
-  suggests: Product[]=[];
-  wayfairSuggests: Wayfair[]=[];
+  suggests: Product[] = [];
+  wayfairSuggests: Wayfair[] = [];
   input: string = '';
   searchKey: string = '';
   bestMatches!: (Product | Wayfair)[];
@@ -56,14 +82,19 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       })
       console.log("done")
 
-       if (this.suggests.length > 0 && this.wayfairSuggests.length > 0) {
+      if (this.suggests.length > 0 && this.wayfairSuggests.length > 0) {
         this.bestMatches = this.searchBestMatches(search, this.suggests, this.wayfairSuggests);
-       }
+      }
     }
   }
-
-  
-
+  logOutClick(){ 
+    console.log ("logout clicked");
+    // this.gooleAuthService.signOut();
+    localStorage.removeItem("socialUser");
+    window.location.reload();
+    this.router.navigate([''])
+    
+  }
   searchBestMatches(
     query: string,
     list1: Product[] = [],
@@ -114,8 +145,14 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   dontShowOptions() {
     this.optionsMenu = false;
+    this.logoutOption = false;
   }
   showOptions() {
     this.optionsMenu = !this.optionsMenu;
+  }
+  logoutOption: boolean = false;
+
+  showLogout() {
+    this.logoutOption = !this.logoutOption;
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -10,7 +11,6 @@ import { ProductService } from 'src/app/services/product.service';
 export class HomeComponent implements OnInit {
   products!: Product[];
   furnitureProducts!: Product[];
-
   constructor(productService: ProductService) {
     localStorage.removeItem('cId');
     localStorage.removeItem('key');
