@@ -6,7 +6,6 @@ import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
 import { WayfairService } from 'src/app/services/wayfair.service';
 import { ModalComponent } from '../modal/modal.component';
-import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { GoogleAuthService } from 'src/app/services/google-auth.service';
 import { GoogleUser } from 'src/app/model/GoogleUser';
 import { Router } from '@angular/router';
@@ -20,7 +19,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit, AfterViewInit {
   @ViewChild('search') search: any;
   loggedIn!: boolean;
-  user!: SocialUser;
+  user:any;
   ngAfterViewInit(): void {
     fromEvent(this.search.nativeElement, 'keyup')
       .pipe(debounceTime(500))
@@ -31,8 +30,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   optionsMenu: boolean = false;
   modal: ModalComponent = new ModalComponent();
-  constructor(private productservice: ProductService, private wayfairService: WayfairService, private authService: SocialAuthService,private gooleAuthService:GoogleAuthService,private router: Router) {
-    console.log(this.user);
+  constructor(private productservice: ProductService,private gooleAuthService:GoogleAuthService,private wayfairService:WayfairService,private router: Router) {
     const storedItem=localStorage.getItem('socialUser')
     if(storedItem!==null){
     // this.user=JSON.parse(storedItem);
