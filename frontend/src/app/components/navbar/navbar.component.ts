@@ -148,7 +148,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     this.logoutOption = false;
   }
   showOptions() {
-    this.optionsMenu = !this.optionsMenu;
+    this.optionsMenu = true;
   }
   logoutOption: boolean = false;
 

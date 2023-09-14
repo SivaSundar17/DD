@@ -2,15 +2,17 @@
   <div class="flex md:justify-evenly">
     <div class="max-w-[100%] md:max-w-[76%] md:min-w-[76%] lg:max-w-[58%] lg:min-w-[58%]">
       <div
-        class="md:hidden hidden lg:inline-block md:max-w-[70%] lg:max-w-[100%] flex-wrap md:min-w-[70%] lg:min-w-[100%] overflow-hidden">
+        class=" lg:inline-block md:max-w-[70%] lg:max-w-[100%] flex-wrap md:min-w-[70%] lg:min-w-[100%] overflow-hidden">
         <app-best-products></app-best-products>
       </div>
+      <!-- small screen best products-->
 
       <p class="text-xs md:text-lg lg:text-xl m-[1.25vw] font-semibold">
         Exclusive Deals On Furnitures
       </p>
       <!--Scroll -->
       <div class="lg:hidden">
+
         <div class="flex overflow-auto">
           <div *ngFor="let prod of furnitureProducts" class="">
             <!-- small screen -->

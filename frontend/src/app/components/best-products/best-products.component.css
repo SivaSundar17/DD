@@ -2,6 +2,11 @@
     width: 16vw;
   }
 
+  .mediumCard {
+    width: 22vw;
+    height: fit-content
+  }
+
   .carousel-card {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -21,16 +26,22 @@
     /* transition: transform 0.5s ease-in-out; */
   }
 
+
   .mobileCard {
-    width: 62vw;
+    width: full;
+    height: 15vh;
+  }
+  
+  .mobileCardScroll {
+    width: 36vw;
+    height: fit-content;
   }
   
   .mobileCard_text {
-    font-size: 8px;
+    font-size: 12px;
   }
   
   .mobileCard_button {
-    font-size: 5px;
+    font-size: 9px;
   }
-  
   
