@@ -18,7 +18,10 @@ export class BestProductsComponent implements OnInit {
     this.list2 = bestProductsService.getAllList2();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.shuffleList(this.list1);
+    this.shuffleList(this.list2);
+  }
 
   currentIndex = 0;
   currentIndex2 = 0;
@@ -45,5 +48,12 @@ export class BestProductsComponent implements OnInit {
     localStorage.setItem('id', id);
     console.log(id);
     location.href = '/best-product-details';
+  }
+
+  shuffleList(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
 }
