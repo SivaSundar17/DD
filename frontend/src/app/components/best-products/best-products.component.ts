@@ -11,16 +11,17 @@ import { BestProductsService } from 'src/app/best-products.service';
 })
 export class BestProductsComponent implements OnInit {
   list1: BestProducts[];
-  list2:BestProducts[];
+  list2: BestProducts[];
 
   constructor(bestProductsService: BestProductsService) {
     this.list1 = bestProductsService.getAll();
-    this.list2=bestProductsService.getAllList2();
+    this.list2 = bestProductsService.getAllList2();
   }
 
   ngOnInit(): void {}
 
   currentIndex = 0;
+  currentIndex2 = 0;
 
   slideCarousel(direction: number): void {
     this.currentIndex += direction;
@@ -32,11 +33,11 @@ export class BestProductsComponent implements OnInit {
   }
 
   slideCarousel2(direction: number): void {
-    this.currentIndex += direction;
-    if (this.currentIndex < 0) {
-      this.currentIndex = this.list2.length - 1;
-    } else if (this.currentIndex >= this.list2.length) {
-      this.currentIndex = 0;
+    this.currentIndex2 += direction;
+    if (this.currentIndex2 < 0) {
+      this.currentIndex2 = this.list2.length - 1;
+    } else if (this.currentIndex2 >= this.list2.length) {
+      this.currentIndex2 = 0;
     }
   }
 
