@@ -24,6 +24,7 @@ export class CategoryDiscountsComponent implements OnInit {
   currentIndex = 0;
 
   slideCarousel(direction: number): void {
+    console.log(direction+" "+this.currentIndex+" "+this.furnitureProducts.length);
     this.currentIndex += direction;
     if (this.currentIndex < 0) {
       this.currentIndex = this.furnitureProducts.length - 1;

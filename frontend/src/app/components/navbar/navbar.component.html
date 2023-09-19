@@ -64,8 +64,7 @@
 
         <div>MENU</div>
       </div>
-      <div *ngIf="user===undefined" class="flex items-center space-x-2 hover:text-gray-300 cursor-pointer"
-        (click)="modal.openModal()">
+      <div *ngIf="user===undefined" class="flex items-center space-x-2 hover:text-gray-300 cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
           class="lg:w-6 lg:h-6 md:w-4 h-4">
           <path fill-rule="evenodd"
@@ -113,7 +112,7 @@
       <div class="border-b border-gray-300 px-2 py-1 hover:bg-gray-300 hover:font-semibold">
         Menu
       </div>
-      <div (click)="modal.openModal()" *ngIf="user===null"
+      <div  *ngIf="user===null"
         class="border-b border-gray-300 px-2 py-1 hover:bg-gray-300 hover:font-semibold">
         Account
       </div>

@@ -4,9 +4,21 @@
         <div class="hidden lg:inline-block">
             <div class="m-10 max-w-6xl my-5 border-1 rounded-md border-gray-300 bg-gray-100 shadow-sm p-5">
                 <div class="flex justify-evenly">
-                    <div class="p-5">
-                        <img src="{{ bestProducts?.image1 }}" alt="" class="w-fit h-fit rounded-md max-w-xs" />
+                  <div class="min-w-fit mt-2">
+                    <div class="flex space-x-5 items-center">
+                        <div class="min-w-fit space-y-8">
+                            <div *ngIf="bestProducts?.image1!=''" (mouseenter)="showImage(bestProducts?.image1)"><img src="{{bestProducts?.image1}}" alt="" class="w-20 h-14 cursor-pointer"></div>
+                            <div *ngIf="bestProducts?.image2!=''" (mouseenter)="showImage(bestProducts?.image2)"><img src="{{bestProducts?.image2}}" alt="" class="w-20 h-14 cursor-pointer"></div>
+                            <div *ngIf="bestProducts?.image3!=''" (mouseenter)="showImage(bestProducts?.image3)"><img src="{{bestProducts?.image3}}" alt="" class="w-20 h-14 cursor-pointer"></div>
+                            <div *ngIf="bestProducts?.image4!=''" (mouseenter)="showImage(bestProducts?.image4)"><img src="{{bestProducts?.image4}}" alt="" class="w-20 h-14 cursor-pointer"></div>
+                            <div *ngIf="bestProducts?.image5!=''" (mouseenter)="showImage(bestProducts?.image5)"><img src="{{bestProducts?.image5}}" alt="" class="w-20 h-14 cursor-pointer"></div>
+                            <div *ngIf="bestProducts?.image6!=''" (mouseenter)="showImage(bestProducts?.image6)"><img src="{{bestProducts?.image6}}" alt="" class="w-20 h-14 cursor-pointer"></div>
+                        </div>
+                        <div class="min-w-[24rem]" *ngIf="imageUrl!==''"><img src="{{imageUrl}}" alt="" class="w-96 h-64 rounded-md"></div>
+                        <div class="min-w-[24rem]" *ngIf="imageUrl===''"><img src="{{bestProducts?.image1}}" alt="" class="w-96 h-64 rounded-md"></div>
+
                     </div>
+                </div>
                     <div class="mt-2 p-2 pl-5">
                         <p class="font-bold text-sm md:text-xl">
                             {{ bestProducts?.title }}

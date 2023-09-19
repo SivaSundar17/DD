@@ -17,4 +17,10 @@ export class BestProductDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  imageUrl: string = '';
+
+  showImage(Image: any) {
+    this.imageUrl = Image;
+  }
+
 }
