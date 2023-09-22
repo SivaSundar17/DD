@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleAuthService } from 'src/app/services/google-auth.service';
 // import { CredentialResponse, PromptMomentNotification } from 'google-one-tap';
 
 
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoogleAuthComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gAuth :GoogleAuthService) { }
 
   ngOnInit(): void {
 
@@ -18,16 +19,15 @@ export class GoogleAuthComponent implements OnInit {
       console.log('Received credential response:', response);
       //api call or jwt decode or any other logics will go here
 
-    };
+    }; 
+  }
 
+  signInWithGoogle(){
+    this.gAuth.googleSignIn();
+  }
 
-  // console.log("ID: " + responsePayload.sub);
-  // console.log('Full Name: ' + responsePayload.name);
-  // console.log('Given Name: ' + responsePayload.given_name);
-  // console.log('Family Name: ' + responsePayload.family_name);
-  // console.log("Image URL: " + responsePayload.picture);
-  // console.log("Email: " + responsePayload.email);
-    
+  signOutFromGoogle(){
+    this.gAuth.googleSignOut();
   }
 
   

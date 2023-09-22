@@ -1,0 +1,25 @@
+<div class="container mx-auto relative" #carousel>
+    <div class="flex-col justify-center overflow-hidden">
+      <div
+        class="flex justify-center transition-transform ease-in-out duration-300 transform translate-x-[-{{
+          currentIndex * 100
+        }}%]"
+      >
+        <img
+          [src]="images[currentIndex]"
+          class="w-44 h-44 md:w-96 md:h-96"
+          alt=""
+        />
+      </div>
+      <div class="flex justify-center mt-4">
+        <ng-container *ngFor="let image of images; let i = index">
+          <button *ngIf="image!==''"
+            (click)="currentIndex = i"
+            class="w-2 h-2 mx-1 rounded-full cursor-pointer md:w-4 md:h-4 md:mx-2"
+            [class]="i == currentIndex ? 'bg-blue-500' : 'bg-gray-300'"
+          ></button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  

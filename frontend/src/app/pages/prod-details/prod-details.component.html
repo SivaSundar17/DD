@@ -49,7 +49,8 @@
     <div class="flex-col justify-center"> <div class=>{{ prod.Name }}</div>
     <div class="text-xs md:text-base">{{ prod.Manufacturer }}</div>
     <div class="flex justify-center">
-      <img src="{{ prod.ImageUrl }}" alt="" class="w-32 h-32 md:w-60 md:h-60" />
+      <!-- <img src="{{ prod.ImageUrl }}" alt="" class="w-32 h-32 md:w-60 md:h-60" /> -->
+      <app-image-carousel></app-image-carousel>
     </div>
     <div class="flex space-x-2">
       <span *ngIf="prod.DiscountPercentage!=''"  class="text-red-500 text-xs md:text-base">-{{ prod.DiscountPercentage }} %</span>

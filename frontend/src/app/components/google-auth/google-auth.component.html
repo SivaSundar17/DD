@@ -1,5 +1,5 @@
 <p>google-auth works!</p>
-<div>
+<!-- <div>
 <div id="g_id_onload"
      data-client_id="535029787150-5j1gkkbe5q1t4qjkrpshi3mfh3j5ah7l.apps.googleusercontent.com"
      data-context="signin"
@@ -16,6 +16,21 @@
      data-size="medium"
      data-logo_alignment="left">
 </div>
+</div> -->
+
+
+<!-- <div class="row mt-2"> -->
+<div>
+     <a (click)="signInWithGoogle()" style="text-decoration: none;cursor: pointer;">
+          <div class="card shadow text-center">
+               <div class="card-body">
+                    <img src="../../../assets/icons8-google-48.png" alt="" height="24px" width="24px"> Sign In with
+                    Google
+               </div>
+          </div>
+     </a>
 </div>
-
-
+<div (click)="signOutFromGoogle()">
+     <button>sign out from google</button>
+</div>
+<!-- </div> -->

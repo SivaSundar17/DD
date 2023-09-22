@@ -1,6 +1,7 @@
 <div class="lg:max-w-screen-xl lg:mx-auto xl:max-w-screen-2xl lg:my-3">
     <div class="flex justify-evenly">
-        <div class="max-w-[100%] md:max-w-[76%] md:min-w-[76%] lg:max-w-[68%] lg:min-w-[68%] xl:max-w-[68%] xl:min-w-[68%]">
+        <div
+            class="max-w-[100%] md:max-w-[76%] md:min-w-[76%] lg:max-w-[68%] lg:min-w-[68%] xl:max-w-[68%] xl:min-w-[68%]">
             <p class="text-xs md:text-lg lg:text-xl m-[1.25vw] font-semibold">
                 Showing {{ products.length }} results for "{{ key }}"
             </p>
@@ -25,10 +26,12 @@
                                         <div class="text-green-500 mobileCard_text font-semibold">
                                             ${{ prod.CurrentPrice }}
                                         </div>
-                                        <div *ngIf="prod.OriginalPrice != ''" class="mobileCard_text line-through text-gray-600">
+                                        <div *ngIf="prod.OriginalPrice != ''"
+                                            class="mobileCard_text line-through text-gray-600">
                                             {{ prod.OriginalPrice }}
                                         </div>
-                                        <div (click)="addcId(prod.CatalogItemId)" class="text-white mobileCard_button bg-blue-900 w-fit rounded-sm px-1 py-0.5 hover:bg-blue-950 cursor-pointer">
+                                        <div (click)="addcId(prod.CatalogItemId)"
+                                            class="text-white mobileCard_button bg-blue-900 w-fit rounded-sm px-1 py-0.5 hover:bg-blue-950 cursor-pointer">
                                             View
                                         </div>
                                     </div>
@@ -56,12 +59,14 @@
                                             ${{ prod.CurrentPrice }}
                                         </div>
 
-                                        <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
+                                        <div *ngIf="prod.OriginalPrice != ''"
+                                            class="text-xs lg:text-sm line-through text-gray-600">
                                             ${{ prod.OriginalPrice }}
                                         </div>
                                     </div>
-                                    <div (click)="addcId(prod.CatalogItemId)" class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
-                                        View deals
+                                    <div (click)="addcId(prod.CatalogItemId)"
+                                        class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
+                                        view deal
                                     </div>
                                 </div>
                             </div>
@@ -87,12 +92,14 @@
                                             ${{ prod.CurrentPrice }}
                                         </div>
 
-                                        <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
+                                        <div *ngIf="prod.OriginalPrice != ''"
+                                            class="text-xs lg:text-sm line-through text-gray-600">
                                             ${{ prod.OriginalPrice }}
                                         </div>
                                     </div>
-                                    <div (click)="addcId(prod.CatalogItemId)" class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
-                                        View deals
+                                    <div (click)="addcId(prod.CatalogItemId)"
+                                        class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
+                                        view deal
                                     </div>
                                 </div>
                             </div>

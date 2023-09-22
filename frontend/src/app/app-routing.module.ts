@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProdDetailsComponent } from './pages/prod-details/prod-details.component';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
 import { BestProductDetailsComponent } from './pages/best-product-details/best-product-details.component';
+import { GoogleAuthComponent } from './components/google-auth/google-auth.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   // { path: 'signin', component: LoginComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'searchResults', component: SearchResultsComponent },
   {path:'best-product-details',component:BestProductDetailsComponent},
   {path:'',component: HomeComponent },
+  {path:'gauth',component:GoogleAuthComponent}
 ];
 
 @NgModule({

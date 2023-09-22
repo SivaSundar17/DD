@@ -1,8 +1,10 @@
 <div class="lg:max-w-screen-2xl lg:mx-auto lg:my-3">
     <div class="flex md:justify-evenly">
-        <div class="max-w-[100%] md:max-w-[76%] md:min-w-[76%] lg:max-w-[58%] lg:min-w-[58%] xl:max-w-[68%] xl:min-w-[68%]">
+        <div
+            class="max-w-[100%] md:max-w-[76%] md:min-w-[76%] lg:max-w-[58%] lg:min-w-[58%] xl:max-w-[68%] xl:min-w-[68%]">
             <!-- Best Products large screen Carousel -->
-            <div class="max-w-[100%] md:max-w-[100%] lg:max-w-[100%] flex-wrap md:min-w-[100%] lg:min-w-[100%] overflow-hidden">
+            <div
+                class="max-w-[100%] md:max-w-[100%] lg:max-w-[100%] flex-wrap md:min-w-[100%] lg:min-w-[100%] overflow-hidden">
                 <app-best-products></app-best-products>
             </div>
             <!-- small screen best products-->
@@ -33,11 +35,13 @@
                                                 ${{ prod.CurrentPrice }}
                                             </div>
 
-                                            <div *ngIf="prod.OriginalPrice != ''" class="mobileCard_text line-through text-gray-600">
+                                            <div *ngIf="prod.OriginalPrice != ''"
+                                                class="mobileCard_text line-through text-gray-600">
                                                 ${{ prod.OriginalPrice }}
                                             </div>
                                         </div>
-                                        <div (click)="addcId(prod.CatalogItemId)" class="text-white mobileCard_button bg-blue-900 w-fit rounded-sm px-1 py-0.5 hover:bg-blue-950 cursor-pointer">
+                                        <div (click)="addcId(prod.CatalogItemId)"
+                                            class="text-white mobileCard_button bg-blue-900 w-fit rounded-sm px-1 py-0.5 hover:bg-blue-950 cursor-pointer">
                                             View
                                         </div>
                                     </div>
@@ -47,7 +51,8 @@
 
                         <!--medium screen-->
                         <div class="hidden md:inline-block large:hidden">
-                            <div class="border border-gray md:mx-3 md:my-1 lg:mx-5 lg:my-2 mediumCard shadow-md rounded-md">
+                            <div
+                                class="border border-gray md:mx-3 md:my-1 lg:mx-5 lg:my-2 mediumCard shadow-md rounded-md">
                                 <div class="m-3 space-y-2">
                                     <div class="flex items-center justify-center">
                                         <img src="{{ prod.ImageUrl }}" alt="" class="rounded-lg w-35 h-40" />
@@ -64,12 +69,14 @@
                                                 ${{ prod.CurrentPrice }}
                                             </div>
 
-                                            <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
+                                            <div *ngIf="prod.OriginalPrice != ''"
+                                                class="text-xs lg:text-sm line-through text-gray-600">
                                                 ${{ prod.OriginalPrice }}
                                             </div>
                                         </div>
-                                        <div (click)="addcId(prod.CatalogItemId)" class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
-                                            View deals
+                                        <div (click)="addcId(prod.CatalogItemId)"
+                                            class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
+                                            view deal
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +85,8 @@
 
                         <!--large screen-->
                         <div class="hidden lg:inline-block">
-                            <div class="border border-gray md:mx-3 md:my-1 lg:mx-5 lg:my-2 largeCard shadow-md rounded-md">
+                            <div
+                                class="border border-gray md:mx-3 md:my-1 lg:mx-5 lg:my-2 largeCard shadow-md rounded-md">
                                 <div class="m-3 space-y-2">
                                     <div class="flex items-center justify-center">
                                         <img src="{{ prod.ImageUrl }}" alt="" class="rounded-lg w-35 h-40" />
@@ -95,12 +103,14 @@
                                                 ${{ prod.CurrentPrice }}
                                             </div>
 
-                                            <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
+                                            <div *ngIf="prod.OriginalPrice != ''"
+                                                class="text-xs lg:text-sm line-through text-gray-600">
                                                 ${{ prod.OriginalPrice }}
                                             </div>
                                         </div>
-                                        <div (click)="addcId(prod.CatalogItemId)" class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
-                                            View deals
+                                        <div (click)="addcId(prod.CatalogItemId)"
+                                            class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
+                                            view deal
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +121,8 @@
             </div>
 
             <!--large screen carousel -->
-            <div class="md:hidden hidden lg:inline-block md:max-w-[70%] lg:max-w-[100%] flex-wrap md:min-w-[70%] lg:min-w-[100%] overflow-hidden">
+            <div
+                class="md:hidden hidden lg:inline-block md:max-w-[70%] lg:max-w-[100%] flex-wrap md:min-w-[70%] lg:min-w-[100%] overflow-hidden">
                 <app-category-discounts></app-category-discounts>
             </div>
 
@@ -140,10 +151,12 @@
                                         <div class="text-green-500 mobileCard_text font-semibold">
                                             ${{ prod.CurrentPrice }}
                                         </div>
-                                        <div *ngIf="prod.OriginalPrice != ''" class="mobileCard_text line-through text-gray-600">
+                                        <div *ngIf="prod.OriginalPrice != ''"
+                                            class="mobileCard_text line-through text-gray-600">
                                             {{ prod.OriginalPrice }}
                                         </div>
-                                        <div (click)="addcId(prod.CatalogItemId)" class="text-white mobileCard_button bg-blue-900 w-fit rounded-sm px-1 py-0.5 hover:bg-blue-950 cursor-pointer">
+                                        <div (click)="addcId(prod.CatalogItemId)"
+                                            class="text-white mobileCard_button bg-blue-900 w-fit rounded-sm px-1 py-0.5 hover:bg-blue-950 cursor-pointer">
                                             View
                                         </div>
                                     </div>
@@ -171,12 +184,14 @@
                                             ${{ prod.CurrentPrice }}
                                         </div>
 
-                                        <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
+                                        <div *ngIf="prod.OriginalPrice != ''"
+                                            class="text-xs lg:text-sm line-through text-gray-600">
                                             ${{ prod.OriginalPrice }}
                                         </div>
                                     </div>
-                                    <div (click)="addcId(prod.CatalogItemId)" class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
-                                        View deals
+                                    <div (click)="addcId(prod.CatalogItemId)"
+                                        class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
+                                        view deal
                                     </div>
                                 </div>
                             </div>
@@ -202,12 +217,14 @@
                                             ${{ prod.CurrentPrice }}
                                         </div>
 
-                                        <div *ngIf="prod.OriginalPrice != ''" class="text-xs lg:text-sm line-through text-gray-600">
+                                        <div *ngIf="prod.OriginalPrice != ''"
+                                            class="text-xs lg:text-sm line-through text-gray-600">
                                             ${{ prod.OriginalPrice }}
                                         </div>
                                     </div>
-                                    <div (click)="addcId(prod.CatalogItemId)" class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
-                                        View deals
+                                    <div (click)="addcId(prod.CatalogItemId)"
+                                        class="text-white text-xs bg-blue-900 px-2 py-1 rounded-sm hover:bg-blue-950 cursor-pointer">
+                                        view deal
                                     </div>
                                 </div>
                             </div>

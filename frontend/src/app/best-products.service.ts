@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BestProducts } from './model/BestProducts';
+import { Product } from './model/product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BestProductsService {
+  bestproducts: BestProducts|undefined;
   list1: BestProducts[] = [
     {
       title: 'Apple iPhone 13 (128GB, Blue) [Locked] + Carrier Subscription',
@@ -300,95 +302,95 @@ export class BestProductsService {
     {
       title:
         'Lenovo IdeaPad, 20GB RAM, 1TB SSD, AMD Dual-core Processor, 15.6 Inch HD Anti-Glare Display, Long Battery Life Up to 9.5Hr, HDMI, SD Card Reader, Windows 11, 1 Year Microsoft 365',
-      id: '1',
+      id: '19',
       desc: '【Processor】AMD Athlon Processor 2.3 GHz (4M Cache, up to 3.2 GHz, 2 cores) for Fast and Snappy Performance.【Memory and Storage】20GB High bandwidth RAM to Smoothly Run Multiple Applications and Browser Tabs All at Once. Hard Drive is 1TB PCIe Solid State Drive (SSD) with 128GB eMMC Starup Disk which Allows to Fast Boot-up and Data Transfer.【Display】 15.6 HD (1366x768) Anti-glare Screen, Energy-efficient LED backlight giving you more viewing area and less clutter, on a crystal-clear HD screen.【Operating System】 Windows 11 Home in S mode. You may switch Win 11 S mode to the regular Win 11【Office 365 for one year】 Get full access to Microsoft Excel, Word, PowerPoint, OneNote, Access, and 1 TB of One Drive storage for 1 year.',
       originalPrice: '439.99',
       currentPrice: ' 417.55',
       image1: 'https://m.media-amazon.com/images/I/81mbudCbPLL._AC_SX679_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
-      image5: '',
-      image6: '',
+      image2: 'https://m.media-amazon.com/images/I/71Chg5ZqB1L._AC_SX679_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/71KJlxRN9rL._AC_SX679_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/81zmNq+PwiL._AC_SX679_.jpg',
+      image5: 'https://m.media-amazon.com/images/I/61XpHU2pKuL._AC_SX679_.jpg',
+      image6: 'https://m.media-amazon.com/images/I/71tMDpb9D2L._AC_SX679_.jpg',
       clickURL:
         'https://www.amazon.com/Lenovo-IdeaPad-Dual-core-Processor-Anti-Glare/dp/B0C3JB53RQ/ref=sr_1_1_sspa?crid=3CJ1TSC9FMO04&amp;keywords=Lenovo&amp;qid=1694806125&amp;sprefix=lenovo%252Caps%252C120&amp;sr=8-1-spons&amp;ufe=app_do%253Aamzn1.fos.c3015c4a-46bb-44b9-81a4-dc28e6d374b3&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;th=1&_encoding=UTF8&tag=ryzlink02-20&linkCode=ur2&linkId=8f688bdc7be3c5b5226e6e5a080e04b0&camp=1789&creative=9325',
     },
     {
       title:
         'lenovo 14" FHD Ideapad 3 Newest Laptop, 20GB RAM, 512GB PCIe SSD,Intel Dual Core Processor(Up to 4.1GHz), WiFi, Webcam, Bluetooth, HDMI, Windows 11 S+ Accessories',
-      id: '2',
+      id: '20',
       desc: '【Processor】11th Gen Intel Core i3-1115G4, 2 Cores & 4 Threads, up to 4.10 GHz Max Turbo Frequency, 6MB L3 Cache, enough for light daily office use, office, Ensures smooth use of office software, communication software and web pages, Ultra-low power consumption can effectively improve the battery life of the laptop.【Display】14 inch Full HD (1920x1080) display. Intel UHD Graphics【Upgraded to 20GB RAM & 512GB PCIe SSD】Speedy solid-state drive for seanless performance and reliable multitasking, allows to fast bootup and data transfer.【Ports】1 x USB 2.0, 2 x USB 3.2 Gen 1,1 x HDMI, 1 x Card reader, 1 x Power connector.【Windows 11 Home in S mode】You may switch to regular windows 11: Press "Start button" bottom left of the screen; Select "Settings" icon above "power" icon;Select "Activation", then Go to Store; Select Get option under "Switch out of S mode"; Hit Install. (If you also see an "Upgrade your edition of Windows" section, be careful not to click the "Go to the Store" link that appears there.',
       originalPrice: '',
       currentPrice: '389.99',
       image1: 'https://m.media-amazon.com/images/I/61rg4GFJSgL._AC_SX569_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
-      image5: '',
-      image6: '',
+      image2: 'https://m.media-amazon.com/images/I/51IczwyAV+L._AC_SX569_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/71h0oM5zjuL._AC_SX569_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/71Gwcm4GmBL._AC_SY879_.jpg',
+      image5: 'https://m.media-amazon.com/images/I/61tzZo3iHLL._AC_SX569_.jpg',
+      image6: 'https://m.media-amazon.com/images/I/71xN9KcqegL._AC_SX569_.jpg',
       clickURL:
         'https://www.amazon.com/lenovo-Ideapad-Processor-Bluetooth-Accessories/dp/B0BZ8DVWKC/ref=sr_1_2_sspa?crid=3CJ1TSC9FMO04&amp;keywords=Lenovo&amp;qid=1694806125&amp;sprefix=lenovo%252Caps%252C120&amp;sr=8-2-spons&amp;ufe=app_do%253Aamzn1.fos.c3015c4a-46bb-44b9-81a4-dc28e6d374b3&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;th=1&_encoding=UTF8&tag=ryzlink02-20&linkCode=ur2&linkId=d247224c4f77b88da063d3c4831aaecf&camp=1789&creative=9325',
     },
     {
       title:
         'Lenovo 2022 Newest Ideapad 3 Laptop, 15.6" HD Touchscreen, 11th Gen Intel Core i3-1115G4 Processor, 8GB DDR4 RAM, 256GB PCIe NVMe SSD, HDMI, Webcam, Wi-Fi 5, Bluetooth, Windows 11 Home, Almond',
-      id: '3',
+      id: '21',
       desc: '【Memory & Storage】Memory is 8GB high-bandwidth RAM to smoothly run multiple applications and browser tabs all at once. Hard Drive is 256GB PCIe Solid State Drive which allows to fast bootup and data transfer【Processor】11th Gen Intel Core i3-1115G4 Dual-Core 3.0GHz Processor (6MB Intel Smart Cache, up to 4.10GHz) Intel UHD Graphics【Screen】15.6" HD Touchscreen (1366 x 768) Display【Ports】2 x USB 3.2 Gen 1 Type-A, 1 x USB 2.0 Type-A, 1 x HDMI, 1 x Combination Audio Jack, 1 x Multi-format SD Media Card Reader, Wireless-AC Wi-Fi 5 + Bluetooth Combo【Operating System】Windows 11 Home',
       originalPrice: '959.00',
       currentPrice: ' 419.00',
       image1: 'https://m.media-amazon.com/images/I/61QGMX0Qy6L._AC_SX569_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
-      image5: '',
-      image6: '',
+      image2: 'https://m.media-amazon.com/images/I/61oSYW7h1IL._AC_SX569_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/6135Uo47QyL._AC_SX569_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/51iKusdOFTL._AC_SX569_.jpg',
+      image5: 'https://m.media-amazon.com/images/I/61IHcOG8FOL._AC_SX569_.jpg',
+      image6: 'https://m.media-amazon.com/images/I/615DE77o1xL._AC_SX569_.jpg',
       clickURL:
         'href="https://www.amazon.com/Lenovo-Ideapad-Touchscreen-i3-1005G1-Processor/dp/B08B6F1NNR/ref=sr_1_3?crid=3CJ1TSC9FMO04&amp;keywords=Lenovo&amp;qid=1694806125&amp;sprefix=lenovo%252Caps%252C120&amp;sr=8-3&amp;ufe=app_do%253Aamzn1.fos.c3015c4a-46bb-44b9-81a4-dc28e6d374b3&amp;th=1&_encoding=UTF8&tag=ryzlink02-20&linkCode=ur2&linkId=0938090d4c08eef27bef1a14ebf5e943&camp=1789&creative=9325',
     },
     {
       title:
         'Lenovo Tab M8 (4th Gen) - 2023 - Tablet - Long Battery Life - 8" HD - Front 2MP & Rear 5MP Camera - 2GB Memory - 32GB Storage - Android 12 (Go Edition) or Later,Gray',
-      id: '4',
+      id: '22',
       desc: 'Pocketable Entertainment: Tap into on-the-go fun for you or your kids with a slim-and-light 8-inch HD display and powerful dual speakers. Get one Tab M8 (4th gen) for each member of the household. All Day Fun: Pack full power to sustain an entire day for kids to learn and grow on day and road trips with up to 16 hours of streaming on the 5100 mAh battery Safer Screen Time: The Lenovo Tab M8 (4th Gen) is TÜV Eye Care Certified. It protects sensitive eyes by reducing harmful blue light emissions. Turn on Reading Mode for a more realistic and immersive reading experience that lets you read for longer Greater Peace of Mind: Safeguard yourself and your family with a privacy dashboard that lets you manage your privacy permission accesses. Know when your camera and microphone is on through the camera and microphone indicator for greater peace of mind. Help Your Family Create Better Digital Habits: With parental controls in the Family Link app from Google, you can guide your child’s experience by managing content, setting screen time limits, and more, all from your own device.',
       originalPrice: '109.99',
       currentPrice: ' 78.99',
       image1: 'https://m.media-amazon.com/images/I/61e2XEOJLGL._AC_SX569_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
-      image5: '',
-      image6: '',
+      image2: 'https://m.media-amazon.com/images/I/51ZVWaTEPuL._AC_SX569_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/41UfmdgZQzL._AC_SX569_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/61hVAFt8-UL._AC_SX569_.jpg',
+      image5: 'https://m.media-amazon.com/images/I/81IMoa+GNDL._AC_SX569_.jpg',
+      image6: 'https://m.media-amazon.com/images/I/71+TSNYxAXL._AC_SX569_.jpg',
       clickURL:
         'https://www.amazon.com/Lenovo-Tab-M8-4th-Gen/dp/B0BYPKGM9V/ref=sr_1_4?crid=3CJ1TSC9FMO04&amp;keywords=Lenovo&amp;qid=1694806125&amp;sprefix=lenovo%252Caps%252C120&amp;sr=8-4&amp;ufe=app_do%253Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc&_encoding=UTF8&tag=ryzlink02-20&linkCode=ur2&linkId=36ae785c532cda2381697c862545f7c2&camp=1789&creative=9325',
     },
     {
       title:
         'Lenovo IdeaPad 3 – (2023) - Everyday Notebook - Windows 11-14" Full HD – 8GB Memory – 128GB Storage - Intel Core i3-1115G - Platinum Grey',
-      id: '5',
+      id: '23',
       desc: 'Expect more from your entertainment: Dolby Audio delivers crystal-clear sound. Whether you’re watching a video, streaming music, or video chatting, you’re sure to love what you hear on the IdeaPad 3. See more, Do more: A narrow bezel on 2 sides makes for a clean design  and larger display, giving you more viewing area and less clutter.Privacy at your fingertips: Keep your privacy intact with a physical shutter for your webcam for peace of mind when you need it.Big-time entertainment in a thin and light design: Experience entertainment like never before on thin & light devices, powered by an Intel Core processor with integrated Intel UHD graphics. Work and play from anywhere: A built-in 720p camera with a dual microphone and a battery that lasts up to 7.5 hours gives you the freedom to work or play where you want, when you want.',
       originalPrice: '299.99',
       currentPrice: '277.80',
       image1: 'https://m.media-amazon.com/images/I/81sq-a+suJL._AC_SX569_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
-      image5: '',
-      image6: '',
+      image2: 'https://m.media-amazon.com/images/I/71h4aiW-NcL._AC_SX569_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/81vTAkKZf8L._AC_SX569_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/81yW-IpwXzL._AC_SX569_.jpg',
+      image5: 'https://m.media-amazon.com/images/I/81VNG2UUQrL._AC_SX569_.jpg',
+      image6: 'https://m.media-amazon.com/images/I/81Ogybqhl+L._AC_SX569_.jpg',
       clickURL:
         'https://www.amazon.com/Lenovo-IdeaPad-Everyday-Notebook-i3-1115G/dp/B0BWSJ3CB5/ref=sr_1_5?crid=3CJ1TSC9FMO04&amp;keywords=Lenovo&amp;qid=1694806125&amp;sprefix=lenovo%252Caps%252C120&amp;sr=8-5&amp;ufe=app_do%253Aamzn1.fos.c3015c4a-46bb-44b9-81a4-dc28e6d374b3&amp;th=1&_encoding=UTF8&tag=ryzlink02-20&linkCode=ur2&linkId=11e0e247a6ec7ecdca740a79ba56432c&camp=1789&creative=9325',
     },
     {
       title:
         'Apple iMac 27-Inch Desktop, 3.4 GHz Intel Core i7 Processor, 16 GB memory, 1TB HDD (Renewed),macOS High Sierra',
-      id: '6',
+      id: '24',
       desc: 'This pre-owned product has been professionally inspected, tested and cleaned by Amazon qualified vendors. It is not certified by Apple.This product is in "Excellent condition". The screen and body show no signs of cosmetic damage visible from 12 inches away.This product will have a battery that exceeds 80% capacity relative to new. Accessories may not be original, but will be compatible and fully functional. Product may come in generic box. This product is eligible for a replacement or refund within 90 days of receipt if it does not work as expected.',
       originalPrice: '',
       currentPrice: '1500.00',
       image1: 'https://m.media-amazon.com/images/I/41o4CCowRML._AC_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
-      image5: '',
+      image2: 'https://m.media-amazon.com/images/I/61NBGmMToRL._AC_SY879_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/41-6s8AyerL._AC_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/41XUJTzbA2L._AC_.jpg',
+      image5: 'https://m.media-amazon.com/images/I/51cxQjvXkML._AC_.jpg',
       image6: '',
       clickURL:
         'https://www.amazon.com/Apple-27-Inch-Desktop-Processor-Renewed/dp/B07JN3J6H2/ref=sr_1_1_sspa?crid=2MB8DRYPQ0RWB&amp;keywords=apple+desktop+computers&amp;qid=1694806157&amp;sprefix=apple+des%252Caps%252C132&amp;sr=8-1-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1&_encoding=UTF8&tag=ryzlink02-20&linkCode=ur2&linkId=4624b43e486c9565ff0b0fa22dc3f5bc&camp=1789&creative=9325',
@@ -396,12 +398,12 @@ export class BestProductsService {
     {
       title:
         'Apple iMac MK452LL/A 21.5-Inch 4K Retina Display Intel Core i5 3.1GHz 16GB RAM 1TB HDD (Renewed) Mac OS X',
-      id: '7',
+      id: '25',
       desc: 'Intel i5-5675r 3.1ghz, 16GB 1867 MHz DDR3 RAM, 1TB HDD,21.5" LCD; 4096 x 2304; Intel Iris Pro 6200 Graphics',
       originalPrice: '',
       currentPrice: '598.99',
       image1: 'https://m.media-amazon.com/images/I/710Lq-tQgPL._AC_SX569_.jpg',
-      image2: '',
+      image2: 'https://m.media-amazon.com/images/I/512xGLGBOcL._SP620,567,0%7C41er9foT+AL.jpg,517QiAqfalL.jpg,51it9gGTIKL.jpg,41kd3xk6LEL.jpg,51FKcQa4MIL.jpg_.jpg',
       image3: '',
       image4: '',
       image5: '',
@@ -412,13 +414,13 @@ export class BestProductsService {
     {
       title:
         'Apple iMac MK462LL/A 27-inch Desktop Intel 5K Display 16GB Ram | 1TB Hard Drive (Renewed), Mac OS X',
-      id: '8',
+      id: '26',
       desc: '27-inch (diagonal) Retina 5K display with IPS technology (5120x2880)3.2GHz quad-core Intel Core i5, AMD Radeon R9 M380 graphics processor 16GB of 1867MHz DDR3 memory, 1TB (7200-rpm) Hard Drive FaceTime HD camera 802.11ac Wi-Fi wireless networking, Bluetooth 4.0 wireless technology, Mac OS',
       originalPrice: '',
       currentPrice: '1050.00',
       image1: 'https://m.media-amazon.com/images/I/710Lq-tQgPL._AC_SX569_.jpg',
-      image2: '',
-      image3: '',
+      image2: 'https://m.media-amazon.com/images/I/61WAK+c16fL._AC_SX569_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/411CN2V+zcL._AC_SX569_.jpg',
       image4: '',
       image5: '',
       image6: '',
@@ -428,14 +430,14 @@ export class BestProductsService {
     {
       title:
         '2021 Apple iMac (24-inch, Apple M1 chip with 8‑core CPU and 7‑core GPU, 8GB RAM, 256GB) - Blue (Renewed)macOS Sierra',
-      id: '9',
+      id: '27',
       desc: 'Immersive 24-inch 4.5K Retina display with P3 wide color gamut and 500 nits of brightness; Apple M1 chip delivers powerful performance with 7-core CPU and 7-core GPU; Strikingly thin 11.5 mm design in vibrant colors 1080p FaceTime HD camera with M1 ISP for amazing video quality; Studio-quality three-mic array for crystal clear calls and voice recordings',
       originalPrice: '1294.99',
       currentPrice: '337.99',
       image1: 'https://m.media-amazon.com/images/I/61aVG-CiuKS._AC_SX569_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
+      image2: 'https://m.media-amazon.com/images/I/516MHa5U1bS._AC_SX679_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/81aQnBAfCkS._AC_SX679_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/81njY5tSgTS._AC_SX679_.jpg',
       image5: '',
       image6: '',
       clickURL:
@@ -444,14 +446,14 @@ export class BestProductsService {
     {
       title:
         '2019 Apple iMac with Retina 4K/3.6 GHz Intel Core i3 Quad-Core (21.5-Inch, 8GB RAM, 1TB) - Silver (Renewed)',
-      id: '10',
+      id: '28',
       desc: 'This pre-owned product has been professionally inspected, tested and cleaned by Amazon qualified vendors. It is not certified by Apple.This product is in Excellent condition. The screen and body show no signs of cosmetic damage visible from 12 inches away. This product will have a battery that exceeds 80% capacity relative to new. Accessories may not be original, but will be compatible and fully functional. Product may come in generic box. This product is eligible for a replacement or refund within 90 days of receipt if it does not work as expected.',
       originalPrice: '1,007.95',
       currentPrice: '589.07',
       image1: 'https://m.media-amazon.com/images/I/511AheCcg6L._AC_SX569_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
+      image2: 'https://m.media-amazon.com/images/I/511AheCcg6L._AC_SX569_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/51yYfDFTyHL._AC_SX569_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/51MRbcEzYAL._AC_SX569_.jpg',
       image5: '',
       image6: '',
       clickURL:
@@ -460,14 +462,14 @@ export class BestProductsService {
     {
       title:
         'Apple 21.5" iMac Desktop Computer, Intel Core i5-7360U, 8GB RAM, 1TB HDD, MMQA2LL/A (Renewed)',
-      id: '11',
+      id: '29',
       desc: '2.3 GHz Intel Core i5-7360U Dual-Core; 8GB of DDR4 RAM | 1TB Hard Drive; 21.5-inch LED-backlit Widescreen IPS display (1920 x 1080); Integrated Intel Iris Plus Graphics 640; Mac OS 10.12 pre-installed',
       originalPrice: '',
       currentPrice: '414.99',
       image1: 'https://m.media-amazon.com/images/I/41jc2Kd2RqL._AC_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
+      image2: 'https://m.media-amazon.com/images/I/61Z2af0NZfL._AC_SX679_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/71Pyka4R7DL._AC_SX679_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/71ifjG1kSaL._AC_SX679_.jpg',
       image5: '',
       image6: '',
       clickURL:
@@ -476,16 +478,16 @@ export class BestProductsService {
     {
       title:
         '2021 Apple iMac with Apple M1 chip 8-core CPU (24-inch, 8GB RAM, 256GB) (QWERTY English) Pink (Renewed Premium)',
-      id: '12',
+      id: '30',
       desc: 'Immersive 24-inch 4.5K Retina display with P3 wide color gamut and 500 nits of brightness; Apple M1 chip delivers powerful performance with 8-core CPU and 8-core GPU; Strikingly thin 11.5 mm design in vibrant colors; 1080p FaceTime HD camera with M1 ISP for amazing video quality; Studio-quality three-mic array for crystal clear calls and voice recordings',
       originalPrice: '1,099.00',
       currentPrice: '1,049.00',
       image1: 'https://m.media-amazon.com/images/I/61AWSyzWrmS._AC_SX569_.jpg',
-      image2: '',
-      image3: '',
-      image4: '',
-      image5: '',
-      image6: '',
+      image2: 'https://m.media-amazon.com/images/I/51EOFCGfQbS._AC_SX679_.jpg',
+      image3: 'https://m.media-amazon.com/images/I/71tiTAgeMeS._AC_SX679_.jpg',
+      image4: 'https://m.media-amazon.com/images/I/81Ky839UabS._AC_SX679_.jpg',
+      image5: 'https://m.media-amazon.com/images/I/81hkBsJGMYS._AC_SX679_.jpg',
+      image6: 'https://m.media-amazon.com/images/I/71CwGBboYaS._AC_SX679_.jpg',
       clickURL:
         'https://www.amazon.com/Apple-24-inch-English-Renewed-Premium/dp/B0C8GLCF28/ref=sr_1_20?crid=2MB8DRYPQ0RWB&amp;keywords=apple%252Bdesktop%252Bcomputers&amp;qid=1694806157&amp;sprefix=apple%252Bdes%252Caps%252C132&amp;sr=8-20&amp;th=1&_encoding=UTF8&tag=ryzlink02-20&linkCode=ur2&linkId=8a87b17c1be2109e1917028d544b22d1&camp=1789&creative=9325',
     }
@@ -505,6 +507,11 @@ export class BestProductsService {
   }
 
   getProductById(id: string | null): BestProducts | undefined {
-    return this.list1.find((product) => product.id === id);
+    this.bestproducts =this.list1.find((product)=>product.id===id);
+    if(this.bestproducts===undefined){
+      this.bestproducts= this.list2.find((product)=>product.id===id);
+    }
+    // console.log(this.list1.find((product) => product.id === id))
+    return this.bestproducts;
   }
 }

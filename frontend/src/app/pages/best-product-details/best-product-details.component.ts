@@ -5,22 +5,22 @@ import { BestProducts } from 'src/app/model/BestProducts';
 @Component({
   selector: 'app-best-product-details',
   templateUrl: './best-product-details.component.html',
-  styleUrls: ['./best-product-details.component.css']
+  styleUrls: ['./best-product-details.component.css'],
 })
 export class BestProductDetailsComponent implements OnInit {
-  bestProducts: BestProducts|undefined;
+  bestProducts: BestProducts | undefined;
 
   constructor(private bestProductsService: BestProductsService) {
-    this.bestProducts=bestProductsService.getProductById(localStorage.getItem('id'));
-   }
-
-  ngOnInit(): void {
+    this.bestProducts = bestProductsService.getProductById(
+      localStorage.getItem('id')
+    );
   }
+
+  ngOnInit(): void {}
 
   imageUrl: string = '';
 
   showImage(Image: any) {
     this.imageUrl = Image;
   }
-
 }

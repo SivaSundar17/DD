@@ -14,8 +14,12 @@ import { CategoryDiscountsComponent } from './components/category-discounts/cate
 import { BestProductsComponent } from './components/best-products/best-products.component';
 import { BestProductDetailsComponent } from './pages/best-product-details/best-product-details.component';
 import { ModalComponent } from './components/modal/modal.component';
-
-
+import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
+import { HammerModule } from "../../node_modules/@angular/platform-browser";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
 
 
 @NgModule({
@@ -29,7 +33,8 @@ import { ModalComponent } from './components/modal/modal.component';
     CategoryDiscountsComponent,
     BestProductsComponent,
     BestProductDetailsComponent,
-    ModalComponent
+    ModalComponent,
+    ImageCarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,8 @@ import { ModalComponent } from './components/modal/modal.component';
     FormsModule,
     HttpClientModule,
     FormsModule,
+    HammerModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
   ],
