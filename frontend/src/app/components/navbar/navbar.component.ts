@@ -18,6 +18,7 @@ import { User } from 'src/app/model/User';
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
   @ViewChild('search') search: any;
+
   loggedIn!: boolean;
   userPhoto: any;
   userName: any;
@@ -75,6 +76,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   input: string = '';
   searchKey: string = '';
   bestMatches!: (Product | Wayfair)[];
+  logoutOption: boolean = false;
 
   onSearch(search: string, key: string) {
     if (key === 'Enter' && search != '') {
@@ -168,20 +170,15 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   dontShowOptions() {
     this.optionsMenu = false;
-    // this.logoutOption = false;
+    this.logoutOption = false;
   }
+
   showOptions() {
     this.optionsMenu = true;
   }
 
-  logoutOption: boolean = false;
-
   showLogout() {
     this.logoutOption = !this.logoutOption;
     console.log('logout Option for mobile' + this.logoutOption);
-  }
-
-  closingModal() {
-    this.modal.isOpen = false;
   }
 }

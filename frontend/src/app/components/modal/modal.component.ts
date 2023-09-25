@@ -11,13 +11,14 @@ export class ModalComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  openModal() {
-    console.log('hey');
 
+  openModal() {
     this.isOpen = true;
+    console.log('open Modal');
   }
 
   closeModal() {
     this.isOpen = false;
+    console.log('close Modal');
   }
 }

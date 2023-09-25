@@ -127,9 +127,6 @@
 
       <div
         (click)="modal.openModal()"
-        clickOutside
-        [myValue]="modal.isOpen"
-        (clickOutside)="closingModal()"
         *ngIf="userName === undefined"
         class="flex items-center space-x-2 hover:text-gray-300 cursor-pointer"
       >
