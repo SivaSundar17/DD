@@ -3,18 +3,17 @@ import { Observable } from 'rxjs';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-
+import { ModalComponent } from '../components/modal/modal.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GoogleAuthService {
-
-  user!: any;
+  // user!: any;
   loggedIn: any;
+  modal: ModalComponent = new ModalComponent();
 
-  constructor(private fireauth: AngularFireAuth, private router: Router) {
-  }
+  constructor(private fireauth: AngularFireAuth, private router: Router) {}
 
   // currentUser():SocialUser{
   //   this.authService.authState.subscribe((user) => {
@@ -44,27 +43,35 @@ export class GoogleAuthService {
   // }
 
   googleSignIn() {
-    return this.fireauth.signInWithPopup(new GoogleAuthProvider).then(res => {
+    return this.fireauth.signInWithPopup(new GoogleAuthProvider()).then(
+      (res) => {
+        // this.router.navigate(['/home']);
+        this.modal.closeModal();
+        window.location.reload();
+        // this.user = res.user;
+        localStorage.setItem('userPhoto', '' + res.user?.photoURL);
+        // localStorage.setItem('token', JSON.stringify(res.user?.uid));
+        console.log(res.user?.photoURL);
 
-      // this.router.navigate(['/home']);
-      this.user = res.user;
-      localStorage.setItem('user', JSON.stringify(res.user));
-      localStorage.setItem('token', JSON.stringify(res.user?.uid));
-
-
-    }, err => {
-      alert(err.message);
-    })
+        localStorage.setItem('userName', '' + res.user?.displayName);
+      },
+      (err) => {
+        alert(err.message);
+      }
+    );
   }
   googleSignOut() {
-    this.fireauth.signOut()
+    this.fireauth
+      .signOut()
       .then(() => {
         localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        console.log('User signed out successfully');
+        // localStorage.removeItem('user');
+        localStorage.removeItem('userPhoto');
+        localStorage.removeItem('userName');
+        alert('User signed out successfully');
       })
-      .catch(error => {
-        console.error('Error signing out:', error);
+      .catch((error) => {
+        alert('Error signing out:' + error);
       });
   }
 }

@@ -15,12 +15,10 @@ import { BestProductsComponent } from './components/best-products/best-products.
 import { BestProductDetailsComponent } from './pages/best-product-details/best-product-details.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
-import { HammerModule } from "../../node_modules/@angular/platform-browser";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { HammerModule } from '../../node_modules/@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-
+import { GoogleAuthComponent } from './components/google-auth/google-auth.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +33,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     BestProductDetailsComponent,
     ModalComponent,
     ImageCarouselComponent,
+    GoogleAuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,10 +42,9 @@ import { AngularFireModule } from '@angular/fire/compat';
     HttpClientModule,
     FormsModule,
     HammerModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

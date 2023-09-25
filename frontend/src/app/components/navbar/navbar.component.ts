@@ -9,7 +9,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { GoogleAuthService } from 'src/app/services/google-auth.service';
 import { GoogleUser } from 'src/app/model/GoogleUser';
 import { Router } from '@angular/router';
-
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +19,9 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit, AfterViewInit {
   @ViewChild('search') search: any;
   loggedIn!: boolean;
-  user:any;
+  userPhoto: any;
+  userName: any;
+
   ngAfterViewInit(): void {
     fromEvent(this.search.nativeElement, 'keyup')
       .pipe(debounceTime(500))
@@ -30,11 +32,16 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   optionsMenu: boolean = false;
   modal: ModalComponent = new ModalComponent();
-  constructor(private productservice: ProductService,private gooleAuthService:GoogleAuthService,private wayfairService:WayfairService,private router: Router) {
-    const storedItem=localStorage.getItem('socialUser')
-    if(storedItem!==null){
-    // this.user=JSON.parse(storedItem);
-    // console.log("here"+this.user);
+  constructor(
+    private productservice: ProductService,
+    private gooleAuthService: GoogleAuthService,
+    private wayfairService: WayfairService,
+    private router: Router
+  ) {
+    const storedItem = localStorage.getItem('socialUser');
+    if (storedItem !== null) {
+      // this.user=JSON.parse(storedItem);
+      // console.log("here"+this.user);
     }
     //     this.authService.authState.subscribe((user) => {
     //   this.user = user;
@@ -48,9 +55,20 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     //    console.log(user);
     // });
     // }
+    this.getUser();
   }
 
-  ngOnInit(): void { }
+  getUser() {
+    if (localStorage.getItem('userPhoto') != null) {
+      this.userPhoto = localStorage.getItem('userPhoto');
+      this.userName = localStorage.getItem('userName');
+    }
+  }
+
+  ngOnInit(): void {
+    this.getUser();
+  }
+
   isPresent: boolean = false;
   suggests: Product[] = [];
   wayfairSuggests: Wayfair[] = [];
@@ -69,7 +87,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       this.isPresent = true;
       // console.log('suggest for ' + search);
       this.productservice.getSearch(search).subscribe((data: any) => {
-        console.log("1");
+        console.log('1');
         this.suggests = data;
         // console.log('suggestss:' + data);
       });
@@ -77,28 +95,29 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       this.wayfairService.getSearch(search).subscribe((data: any) => {
         console.log('2');
         this.wayfairSuggests = data;
-      })
-      console.log("done")
+      });
+      console.log('done');
 
       if (this.suggests.length > 0 && this.wayfairSuggests.length > 0) {
-        this.bestMatches = this.searchBestMatches(search, this.suggests, this.wayfairSuggests);
+        this.bestMatches = this.searchBestMatches(
+          search,
+          this.suggests,
+          this.wayfairSuggests
+        );
       }
     }
   }
-  logOutClick(){ 
-    console.log ("logout clicked");
-    // this.gooleAuthService.signOut();
-    localStorage.removeItem("socialUser");
+  logOutClick() {
+    console.log('logout clicked');
+    this.gooleAuthService.googleSignOut();
     window.location.reload();
-    this.router.navigate([''])
-    
+    // this.router.navigate(['']);
   }
   searchBestMatches(
     query: string,
     list1: Product[] = [],
     list2: Wayfair[] = []
   ): (Product | Wayfair)[] {
-
     if (!list1 || !Array.isArray(list1) || list1.length === 0) {
       list1 = [];
     }
@@ -109,11 +128,17 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
     const matchesInList1 = list1
       .filter((item) => item.Name.toLowerCase().includes(query.toLowerCase()))
-      .map((item) => ({ ...item, score: this.calculateScore(query, item.Name) }));
+      .map((item) => ({
+        ...item,
+        score: this.calculateScore(query, item.Name),
+      }));
 
     const matchesInList2 = list2
       .filter((item) => item.title.toLowerCase().includes(query.toLowerCase()))
-      .map((item) => ({ ...item, score: this.calculateScore(query, item.title) }));
+      .map((item) => ({
+        ...item,
+        score: this.calculateScore(query, item.title),
+      }));
 
     const allMatches = [...matchesInList1, ...matchesInList2];
     allMatches.sort((a, b) => b.score - a.score);
@@ -143,14 +168,20 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   dontShowOptions() {
     this.optionsMenu = false;
-    this.logoutOption = false;
+    // this.logoutOption = false;
   }
   showOptions() {
     this.optionsMenu = true;
   }
+
   logoutOption: boolean = false;
 
   showLogout() {
     this.logoutOption = !this.logoutOption;
+    console.log('logout Option for mobile' + this.logoutOption);
+  }
+
+  closingModal() {
+    this.modal.isOpen = false;
   }
 }

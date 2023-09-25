@@ -3,25 +3,21 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit {
-
   user: any;
   isOpen = false;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   openModal() {
+    console.log('hey');
+
     this.isOpen = true;
   }
 
   closeModal() {
     this.isOpen = false;
   }
-
-
-
-
 }
