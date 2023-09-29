@@ -126,7 +126,7 @@
       </div>
 
       <div
-        (click)="modal.openModal()"
+      (click)="modal.openModal('nav')"
         *ngIf="userName === undefined"
         class="flex items-center space-x-2 hover:text-gray-300 cursor-pointer"
       >
@@ -143,11 +143,11 @@
           />
         </svg>
         <div>Account</div>
-        <app-modal
-          *ngIf="modal.isOpen"
-          (click)="modal.closeModal()"
-        ></app-modal>
       </div>
+      <app-modal
+      *ngIf="modal.isOpen"
+      (click)="modal.closeModal()"
+    ></app-modal>
 
       <!-- Logged in User -->
       <div
@@ -240,7 +240,7 @@
       </div>
 
       <div
-        (click)="modal.openModal()"
+        (click)="modal.openModal('')"
         *ngIf="userName === undefined"
         class="border-b border-gray-300 px-2 py-1 hover:bg-gray-300 hover:font-semibold"
       >
